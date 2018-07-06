@@ -1,0 +1,10 @@
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background-color: blue;
+  margin: 10px;
+  color: #efefef;
+}

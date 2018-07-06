@@ -1,0 +1,25 @@
+<div class="page-wrapper">  
+<div class="login-wrapper">
+  <mat-form-field>
+    <input matInput placeholder="Email" [(ngModel)]="typedEmail">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Password" [(ngModel)]="typedPassword" type="password">
+  </mat-form-field>
+
+  <div class="error-messages">
+	<p *ngIf="emailOrPasswordIncorrect" class="mat-body-1 mat-error">Email or password incorrect.</p>
+	<p *ngIf="signUpError" class="mat-body-1 mat-error">Could not sign up user.</p>
+    <p *ngIf="invalidEmail" class="mat-body-1 mat-error">Use a valid email.</p>
+	<p *ngIf="weakPassword" class="mat-body-1 mat-error">Password must be six or more characters.</p>
+	<p *ngIf="emailAlreadyInUse" class="mat-body-1 mat-error">Email already in use.</p>
+  </div>
+
+  <button mat-button *ngIf="!authenticated" (click)=loginClicked()>Log in</button>
+
+  <button mat-button *ngIf="!authenticated" (click)=signupClicked()>Sign up</button>
+  <button mat-button *ngIf="!!authenticated" (click)=logoutClicked()>Log out</button>
+
+</div>
+</div>

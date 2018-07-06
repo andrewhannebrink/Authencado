@@ -1,0 +1,25 @@
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.gray-button {
+  background-color: #e1e1e1;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.error-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.success {
+  color: limegreen;
+}
