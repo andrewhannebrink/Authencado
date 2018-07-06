@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebase: {
-  	apiKey: "AIzaSyDMFnANe69trKgNcQDLWF9hEGJqmvg9yHA",
+    apiKey: "AIzaSyDMFnANe69trKgNcQDLWF9hEGJqmvg9yHA",
     authDomain: "emoji-trader.firebaseapp.com",
     databaseURL: "https://emoji-trader.firebaseio.com",
     projectId: "emoji-trader",
