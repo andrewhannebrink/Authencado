@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class AuthService {
-  user: Observable<firebase.User>;
+  public user: Observable<firebase.User>;
+  public twitterAuthProvider: any;
 
   constructor(private firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
@@ -34,7 +35,14 @@ export class AuthService {
       .signOut();
   }
 
+  twitterLogin() {
+    return this.firebaseAuth.auth.signInWithPopup(
+      new firebase.auth.TwitterAuthProvider()
+    );
+  }
+
   private ALLOWED_EMAILS = [
+
   ];
 
 }
