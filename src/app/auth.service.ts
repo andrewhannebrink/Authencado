@@ -47,6 +47,12 @@ export class AuthService {
     );
   }
 
+  googleLogin() {
+    return this.firebaseAuth.auth.signInWithPopup(
+      new firebase.auth.GoogleAuthProvider()
+    );
+  }
+
   private ALLOWED_EMAILS = [
 
   ];

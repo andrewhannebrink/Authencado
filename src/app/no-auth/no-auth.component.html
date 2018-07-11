@@ -21,6 +21,8 @@
   <button mat-button *ngIf="!authenticated" (click)=signupClicked()>Sign up</button>
   <button mat-button *ngIf="!authenticated" (click)=twitterLoginClicked()>Log in with Twitter</button>
   <button mat-button *ngIf="!authenticated" (click)=facebookLoginClicked()>Log in with Facebook</button>
+  <button mat-button *ngIf="!authenticated" (click)=googleLoginClicked()>Log in with Google</button>
+
   <button mat-button *ngIf="!!authenticated" (click)=logoutClicked()>Log out</button>
 
 </div>
