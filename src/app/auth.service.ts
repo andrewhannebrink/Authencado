@@ -41,6 +41,12 @@ export class AuthService {
     );
   }
 
+  facebookLogin() {
+    return this.firebaseAuth.auth.signInWithPopup(
+      new firebase.auth.FacebookAuthProvider()
+    );
+  }
+
   private ALLOWED_EMAILS = [
 
   ];
