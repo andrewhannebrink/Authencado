@@ -45,6 +45,10 @@ h3 {
   text-align: center;
 }
 
+mat-checkbox {
+  margin-right: 15px;
+}
+
 mat-toolbar {
   display: flex;
   justify-content: space-between;
@@ -54,6 +58,10 @@ mat-toolbar {
 mat-form-field {
   height: 90px;
   min-width: 100%;
+}
+
+span {
+  margin: 15px 0;
 }
 
 .bright-button {
@@ -80,6 +88,7 @@ mat-form-field {
   justify-content: space-between;
   min-height: 100vh;
   width: 100vw;
+  font-family: PROXIMANOVA-LT;
 }
 
 .google-red {

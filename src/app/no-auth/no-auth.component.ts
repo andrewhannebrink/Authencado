@@ -46,17 +46,23 @@ export class NoAuthComponent implements OnInit {
 
   changeView(view: string): void {
     if (!!this.VIEWS[view]) {
+      this.clearErrors();
       this.currentView = this.VIEWS[view];
     } else {
       console.log('View: ' + view + ' does not exist.');
     }
   }
 
-  loginClicked() {
+  clearErrors(): void {
     this.signUpError = false;
     this.invalidEmail = false;
     this.weakPassword = false;
     this.emailAlreadyInUse = false;
+    this.emailOrPasswordIncorrect = false;
+  }
+
+  loginClicked() {
+    this.clearErrors();
 
   	this.authService.login(this.typedEmail, this.typedPassword)
     .then(value => {
@@ -69,10 +75,7 @@ export class NoAuthComponent implements OnInit {
   }
 
   signupClicked() {
-    this.emailOrPasswordIncorrect = false;
-    this.invalidEmail = false;
-    this.weakPassword = false;
-    this.signUpError = false;
+    this.clearErrors();
 
   	this.authService.signup(this.typedEmail, this.typedPassword)
     .then(value => {
