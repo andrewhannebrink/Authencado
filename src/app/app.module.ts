@@ -12,6 +12,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule, ROUTES } from './/app-routing.module';
 import { MatIconModule } from '@angular/material/icon';
@@ -45,6 +47,7 @@ import { HomeComponent } from './home/home.component';
     AngularFireModule.initializeApp(environment.firebase, 'fcc-book-trading'),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    AngularFontAwesomeModule,
     BrowserAnimationsModule,
     BrowserModule,
     FlexLayoutModule,

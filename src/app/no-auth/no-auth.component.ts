@@ -9,10 +9,20 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-no-auth',
   templateUrl: './no-auth.component.html',
-  styleUrls: ['./no-auth.component.css', '../app.component.css']
+  styleUrls: ['./no-auth.component.scss', '../app.component.scss']
 })
 export class NoAuthComponent implements OnInit {
 
+
+  public VIEWS = {
+    DEMO: 'DEMO',
+    FORGOT_PASSWORD: 'FORGOT_PASSWORD',
+    LOG_IN: 'LOG_IN',
+    RESET_PASSWORD: 'RESET_PASSWORD',
+    SIGN_UP: 'SIGN_UP'
+  };
+
+  public currentView: string = this.VIEWS.SIGN_UP;
   public typedEmail: string;
   public typedPassword: string;
   public authenticated: boolean;
@@ -32,6 +42,14 @@ export class NoAuthComponent implements OnInit {
         this.router.navigate(['/home']);
       }
     });
+  }
+
+  changeView(view: string): void {
+    if (!!this.VIEWS[view]) {
+      this.currentView = this.VIEWS[view];
+    } else {
+      console.log('View: ' + view + ' does not exist.');
+    }
   }
 
   loginClicked() {
@@ -140,3 +158,4 @@ export class NoAuthComponent implements OnInit {
   }
 
 }
+

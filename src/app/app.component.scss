@@ -1,0 +1,124 @@
+$main-color: #00B092;
+$dark-color: #008064;
+$light-color: #58e3c2;
+
+@font-face {
+    font-family: LEAGUESPARTAN;
+    src: url("../assets/fonts/LEAGUESPARTAN-BOLD.otf") format("opentype");
+}
+
+@font-face {
+    font-family: PROXIMANOVA-LT;
+    src: url("../assets/fonts/PROXIMANOVA-LIGHT.otf") format("opentype");
+}
+
+@font-face {
+    font-family: PROXIMANOVA-RG;
+    src: url("../assets/fonts/PROXIMANOVA-REGULAR.otf") format("opentype");
+}
+
+a {
+  font-family: PROXIMANOVA-LT;
+}
+
+button {
+  font-family: PROXIMANOVA-LT;
+}
+ 
+fa {
+  margin: 15px;
+}
+
+footer {
+  //padding: 15px 15px;
+  background-color: $light-color;
+  color: $dark-color;
+  font-family: PROXIMANOVA-LT; 
+  height: 150px;
+  min-width: 100vw;
+  margin-top: 30px;
+}
+
+h3 {
+  font-family: LEAGUESPARTAN;
+  font-size: larger;
+  text-align: center;
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: $main-color !important;
+}
+
+mat-form-field {
+  height: 90px;
+  min-width: 100%;
+}
+
+.bright-button {
+    background-color: $main-color !important;
+    letter-spacing: 2px;
+    font-size: 15px;
+    color: rgb(245, 245, 245);
+}
+
+.facebook-blue {
+  background-color: rgb(59, 83, 154) !important;
+}
+
+.mobile-menu-icon {
+  align-self: flex-end;
+  color: white;
+  font-size: xx-large;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.google-red {
+  background-color: rgb(241, 48, 29) !important;
+}
+
+.gray-button {
+  background-color: #e1e1e1;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.error-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.rights {
+  margin: 15px;
+}
+
+//TODO
+.subtle-button {
+  color: rgb(180, 180, 180);
+  font-size: 14px;
+  letter-spacing: 1px;
+  background-color: rgb(247, 248, 242);
+}
+.success {
+  color: limegreen;
+}
+
+.title {
+  font-family: LEAGUESPARTAN;
+  font-size: xx-large;
+  letter-spacing: 4px;
+}
+.twitter-blue {
+  background-color: rgb(57, 169, 241) !important;
+}

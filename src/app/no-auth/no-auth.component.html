@@ -1,14 +1,14 @@
-<div style="height: 100vh;">
+<div>
   <mat-toolbar color="primary">
-    <span>🔑 Auth App</span>
+    <span class="title">🔑 AUTH APP</span>
     <span class="example-spacer"></span>
-    <div fxShow="true" fxHide.lt-md="true">
+    <div fxShow="true" fxHide.lt-sm="true">
       <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-      <a href="#" mat-button>Demo</a>
-      <a href="#" mat-button>Sign Up</a>
-      <a href="#" mat-button>Log In</a>
+      <a href="#" mat-button (click)="changeView(VIEWS.DEMO)">Demo</a>
+      <a href="#" mat-button (click)="changeView(VIEWS.SIGN_UP)">Sign Up</a>
+      <a href="#" mat-button (click)="changeView(VIEWS.LOG_IN)">Log In</a>
     </div>
-    <div fxShow="true" fxHide.gt-sm="true">
+    <div fxShow="true" fxHide.gt-xs="true">
       <a href="#" (click)="sidenav.toggle()">
         <mat-icon class='mobile-menu-icon'>view_headline</mat-icon>
       </a>
@@ -19,43 +19,91 @@
     <mat-sidenav #sidenav position="end" fxLayout="column">
       <div fxLayout="column">
         <a (click)="sidenav.toggle()" href="#" mat-button>Close</a>
-        <a (click)="sidenav.toggle()" href="#" mat-button>Demo</a>
-        <a (click)="sidenav.toggle()" href="#" mat-button>Sign Up</a>
-        <a (click)="sidenav.toggle()" href="#" mat-button>Log In</a>
+        <a (click)="sidenav.toggle() && changeView(VIEWS.DEMO)" href="#" mat-button>Demo</a>
+        <a (click)="sidenav.toggle() && changeView(VIEWS.SIGN_UP)" href="#" mat-button>Sign Up</a>
+        <a (click)="sidenav.toggle() && changeView(VIEWS.LOG_IN)" href="#" mat-button>Log In</a>
       </div>
     </mat-sidenav>
 
     <mat-sidenav-content fxFlexFill>
       <div class="page-wrapper">  
 
-        <div class="login-wrapper">
+        <div class="login-wrapper" *ngIf="currentView === VIEWS.LOG_IN || currentView === VIEWS.SIGN_UP">
+
+          <h3 *ngIf="currentView === VIEWS.LOG_IN">ENTER YOUR LOGIN DETAILS BELOW</h3>
+          <h3 *ngIf="currentView === VIEWS.SIGN_UP">CREATE AN ACCOUNT</h3>
+
           <mat-form-field>
             <input matInput placeholder="Email" [(ngModel)]="typedEmail">
           </mat-form-field>
-
           <mat-form-field>
             <input matInput placeholder="Password" [(ngModel)]="typedPassword" type="password">
           </mat-form-field>
 
           <div class="error-messages">
-          <p *ngIf="emailOrPasswordIncorrect" class="mat-body-1 mat-error">Email or password incorrect.</p>
-          <p *ngIf="signUpError" class="mat-body-1 mat-error">Could not sign up user.</p>
+            <p *ngIf="emailOrPasswordIncorrect" class="mat-body-1 mat-error">Email or password incorrect.</p>
+            <p *ngIf="signUpError" class="mat-body-1 mat-error">Could not sign up user.</p>
             <p *ngIf="invalidEmail" class="mat-body-1 mat-error">Use a valid email.</p>
-          <p *ngIf="weakPassword" class="mat-body-1 mat-error">Password must be six or more characters.</p>
-          <p *ngIf="emailAlreadyInUse" class="mat-body-1 mat-error">Email already in use.</p>
+            <p *ngIf="weakPassword" class="mat-body-1 mat-error">Password must be six or more characters.</p>
+            <p *ngIf="emailAlreadyInUse" class="mat-body-1 mat-error">Email already in use.</p>
           </div>
 
-          <button mat-button *ngIf="!authenticated" (click)=loginClicked()>Log in</button>
+          <div class="side-by-side-buttons" *ngIf="!authenticated && currentView === VIEWS.LOG_IN">
+              <button mat-button
+                (click)="changeView(VIEWS.FORGOT_PASSWORD)"
+                class="subtle-button half-length-button">
+              Forgot password?
+            </button>
+            <button mat-button 
+                (click)=loginClicked() 
+                class="bright-button half-length-button">
+              LOGIN
+            </button>
+          </div>
 
-          <button mat-button *ngIf="!authenticated" (click)=signupClicked()>Sign up</button>
-          <button mat-button *ngIf="!authenticated" (click)=twitterLoginClicked() class="twitter-blue">Log in with Twitter</button>
-          <button mat-button *ngIf="!authenticated" (click)=facebookLoginClicked() class="facebook-blue">Log in with Facebook</button>
-          <button mat-button *ngIf="!authenticated" (click)=googleLoginClicked() class="google-red">Log in with Google</button>
+          <div class="side-by-side-buttons" *ngIf="!authenticated && currentView === VIEWS.SIGN_UP" >
+            <button mat-button
+                (click)="changeView(VIEWS.LOG_IN)"
+                class="subtle-button half-length-button">
+              Already a member?
+            </button>
+            <button mat-button 
+                (click)=signupClicked() 
+                class="bright-button half-length-button">
+              SIGNUP
+            </button>
+          </div>
 
-          <button mat-button *ngIf="!!authenticated" (click)=logoutClicked()>Log out</button>
+          <h3 class='or'>- OR -</h3>
+          <button mat-button 
+              *ngIf="!authenticated" 
+              (click)=twitterLoginClicked() 
+              class="bright-button twitter-blue full-length-button">
+            <fa name="twitter"></fa>{{ (currentView === VIEWS.SIGN_UP ? 'SIGNUP' : 'LOGIN') + ' WITH TWITTER' }}
+          </button>
+          <button mat-button 
+              *ngIf="!authenticated" 
+              (click)=facebookLoginClicked() 
+              class="bright-button facebook-blue full-length-button">
+            <fa name="facebook-f"></fa>{{ (currentView === VIEWS.SIGN_UP ? 'SIGNUP' : 'LOGIN') + ' WITH FACEBOOK' }}
+          </button>
+          <button mat-button 
+              *ngIf="!authenticated" 
+              (click)=googleLoginClicked() 
+              class="bright-button google-red full-length-button">
+            <fa name="google"></fa>{{ (currentView === VIEWS.SIGN_UP ? 'SIGNUP' : 'LOGIN') + ' WITH GOOGLE' }}
+          </button>
+          <button mat-button 
+              *ngIf="!!authenticated" 
+              (click)=logoutClicked()>
+            Log out
+          </button>
 
         </div>
-        </div>
+        <footer>
+          <div class="rights">All rights reserved.</div>
+        </footer>
+      </div>
 
     </mat-sidenav-content>
 
