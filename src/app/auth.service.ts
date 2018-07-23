@@ -35,6 +35,10 @@ export class AuthService {
       .signOut();
   }
 
+  resetPassword(email: string) {
+    return this.firebaseAuth.auth.sendPasswordResetEmail(email);
+  }
+
   twitterLogin() {
     return this.firebaseAuth.auth.signInWithPopup(
       new firebase.auth.TwitterAuthProvider()

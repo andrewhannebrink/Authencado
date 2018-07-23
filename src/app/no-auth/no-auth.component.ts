@@ -38,6 +38,9 @@ export class NoAuthComponent implements OnInit {
   public emailAlreadyInUse: boolean;
   public emailBlank : boolean;
 
+  public passwordResetInvalidEmail: boolean;
+  public userNotFound: boolean;
+
   constructor(public authService: AuthService, public router: Router) { }
 
   ngOnInit() {
@@ -67,6 +70,9 @@ export class NoAuthComponent implements OnInit {
     this.passwordsDontMatch = false;
     this.emailBlank = false;
     this.termsNotAgreedError = false;
+
+    this.passwordResetInvalidEmail = false;
+    this.userNotFound = false;
   }
 
   loginClicked() {
@@ -134,8 +140,19 @@ export class NoAuthComponent implements OnInit {
   resetPasswordClicked(): void {
     this.clearErrors();
 
-    //TODO
-    this.changeView(this.VIEWS.RESET_PASSWORD);
+    this.authService.resetPassword(this.typedEmail)
+    .then(() => {
+      console.log("email sent");
+      this.changeView(this.VIEWS.RESET_PASSWORD)
+    })
+    .catch((error) => {
+      if (error.code === 'auth/invalid-email') {
+        this.passwordResetInvalidEmail = true;
+      } else if (error.code === 'auth/user-not-found') {
+        this.userNotFound = true;
+      }
+      console.log(error);
+    });
   }
 
   twitterLoginClicked() {
