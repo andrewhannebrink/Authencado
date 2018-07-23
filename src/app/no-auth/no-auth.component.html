@@ -123,7 +123,7 @@
             <button mat-button
                 (click)=changeView(VIEWS.LOG_IN)
                 class="subtle-button half-length-button">
-              CANCEL 
+              Cancel
             </button>
             <button mat-button 
                 (click)=resetPasswordClicked() 
@@ -152,7 +152,7 @@
             <button mat-button
                 (click)=changeView(VIEWS.FORGOT_PASSWORD) 
                 class="subtle-button half-length-button">
-              RESEND 
+              Re-send email
             </button>
             <button mat-button 
                 (click)=changeView(VIEWS.LOG_IN) 
@@ -186,6 +186,9 @@
               LOGIN 
             </button>
           </div>
+
+          <p *ngIf="verifyEmailError" class="mat-body-1 mat-error">Something went wrong. Email not delivered.</p>
+          <p *ngIf="verifyEmailResentSuccessfully" class="mat-body-1 success">Another confirmation email was sent to {{ authService.getCurrentUser().email }}.</p>
 
         </div>
 

@@ -42,6 +42,9 @@ export class NoAuthComponent implements OnInit {
   public passwordResetInvalidEmail: boolean;
   public userNotFound: boolean;
 
+  public verifyEmailResentSuccessfully: boolean;
+  public verifyEmailError: boolean;
+
   constructor(public authService: AuthService, public router: Router) { }
 
   ngOnInit() {
@@ -57,11 +60,28 @@ export class NoAuthComponent implements OnInit {
         this.router.navigate(['/home']);
       } else {
         if (!waveEmailResend) {
-          user.sendEmailVerification();
+          user.sendEmailVerification()
+          .then(value => {
+            this.changeView(this.VIEWS.VERIFY_EMAIL); 
+          })
+        } else {
+          this.changeView(this.VIEWS.VERIFY_EMAIL); 
         }
-        this.changeView(this.VIEWS.VERIFY_EMAIL); 
       }
     }
+  }
+
+  resendEmailVerification() {
+    this.clearErrors();
+
+    const user = this.authService.getCurrentUser();
+    user.sendEmailVerification()
+    .then(value => {
+      this.verifyEmailResentSuccessfully = true;
+    })
+    .catch(error => {
+      this.verifyEmailError = true;
+    })
   }
 
   changeView(view: string): void {
@@ -85,6 +105,9 @@ export class NoAuthComponent implements OnInit {
 
     this.passwordResetInvalidEmail = false;
     this.userNotFound = false;
+
+    this.verifyEmailError = false;
+    this.verifyEmailResentSuccessfully = false;
   }
 
   loginClicked() {
