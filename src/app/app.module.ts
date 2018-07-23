@@ -27,6 +27,8 @@ import {MatMenuModule} from '@angular/material/menu';
 
 
 import { FormsModule } from '@angular/forms';
+import { RecaptchaModule } from 'ng-recaptcha';
+
 
 
 
@@ -65,6 +67,7 @@ import { HomeComponent } from './home/home.component';
     MatSidenavModule,
     MatToolbarModule,
     MatTooltipModule,
+    RecaptchaModule.forRoot(),
     RouterModule.forRoot(ROUTES),
     AppRoutingModule
   ],

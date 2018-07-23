@@ -44,7 +44,7 @@
           </mat-form-field>
           <span *ngIf="currentView === VIEWS.SIGN_UP">
             <mat-checkbox [(ngModel)]="termsAgreed"></mat-checkbox>
-            I agree to the <a [routerLink]="terms">terms and conditions</a>. 
+            I agree to the <a [routerLink]="terms">terms and conditions</a> 
           </span>
 
           <div class="error-messages">
@@ -58,7 +58,7 @@
             <p *ngIf="termsNotAgreedError" class="mat-body-1 mat-error">You must agree to the terms and services.</p>
           </div>
 
-          <div class="side-by-side-buttons" *ngIf="!authenticated && currentView === VIEWS.LOG_IN">
+          <div class="side-by-side-buttons" *ngIf="currentView === VIEWS.LOG_IN">
               <button mat-button
                 (click)="changeView(VIEWS.FORGOT_PASSWORD)"
                 class="subtle-button half-length-button">
@@ -71,7 +71,11 @@
             </button>
           </div>
 
-          <div class="side-by-side-buttons" *ngIf="!authenticated && currentView === VIEWS.SIGN_UP" >
+          <h6 *ngIf="currentView === VIEWS.LOG_IN">
+            Not a member yet? Sign up <a href="#" (click)="changeView(VIEWS.SIGN_UP)">here</a>
+          </h6>
+
+          <div class="side-by-side-buttons" *ngIf="currentView === VIEWS.SIGN_UP" >
             <button mat-button
                 (click)="changeView(VIEWS.LOG_IN)"
                 class="subtle-button half-length-button">
@@ -87,46 +91,39 @@
           <h3>- OR -</h3>
 
           <button mat-button 
-              *ngIf="!authenticated" 
               (click)=twitterLoginClicked() 
               class="bright-button twitter-blue full-length-button">
             <fa name="twitter"></fa>{{ (currentView === VIEWS.SIGN_UP ? 'SIGNUP' : 'LOGIN') + ' WITH TWITTER' }}
           </button>
           <button mat-button 
-              *ngIf="!authenticated" 
               (click)=facebookLoginClicked() 
               class="bright-button facebook-blue full-length-button">
             <fa name="facebook-f"></fa>{{ (currentView === VIEWS.SIGN_UP ? 'SIGNUP' : 'LOGIN') + ' WITH FACEBOOK' }}
           </button>
           <button mat-button 
-              *ngIf="!authenticated" 
               (click)=googleLoginClicked() 
               class="bright-button google-red full-length-button">
             <fa name="google"></fa>{{ (currentView === VIEWS.SIGN_UP ? 'SIGNUP' : 'LOGIN') + ' WITH GOOGLE' }}
-          </button>
-          <button mat-button 
-              *ngIf="!!authenticated" 
-              (click)=logoutClicked()>
-            Log out
           </button>
         </div>
 
         <div class="login-wrapper" *ngIf="currentView === VIEWS.FORGOT_PASSWORD">
           <h3>RESET YOUR PASSWORD</h3>
+
           <mat-form-field>
             <input matInput required placeholder="Enter your email" [(ngModel)]="typedEmail">
           </mat-form-field>
-          <mat-form-field>
-            <input matInput required placeholder="Enter the code shown">
-          </mat-form-field>
+
+          <re-captcha (resolved)="resolved($event)" siteKey="6LcLxGUUAAAAAFDffXi7HnaD6dt7DmTxblaGu8nx"></re-captcha>
 
           <p *ngIf="passwordResetInvalidEmail" class="mat-body-1 mat-error">Invalid email.</p>
-          <p *ngIf="userNotFound" class="mat-body-1 mat-error">User not found.</p>
+          <p *ngIf="userNotFound" class="mat-body-1 mat-error">Something went wrong.</p>
 
           <div class="side-by-side-buttons side-by-side-reverse-wrap-override">
             <button mat-button
+                (click)=changeView(VIEWS.LOG_IN)
                 class="subtle-button half-length-button">
-              CAPTCHA HERE
+              CANCEL 
             </button>
             <button mat-button 
                 (click)=resetPasswordClicked() 
@@ -163,6 +160,33 @@
               LOGIN 
             </button>
           </div>
+        </div>
+
+
+        <div class="login-wrapper" *ngIf="currentView === VIEWS.VERIFY_EMAIL">
+          <h3> CONFIRM YOUR EMAIL </h3>
+
+          <h5> 
+            Check your inbox for a confirmation email. Click the link in the email to confirm your email address.
+          </h5>
+
+          <h6>
+            Did not receive the email yet? Check your spam folder. 
+          </h6>
+
+          <div class="side-by-side-buttons side-by-side-reverse-wrap-override">
+            <button mat-button
+                (click)="resendEmailVerification()"
+                class="subtle-button half-length-button">
+              Re-send email
+            </button>
+            <button mat-button
+                (click)="changeView(VIEWS.LOG_IN)"
+                class="bright-button half-length-button">
+              LOGIN 
+            </button>
+          </div>
+
         </div>
 
         <footer>

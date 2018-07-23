@@ -59,7 +59,7 @@ h5 {
   font-size: medium;
   text-align: center; 
   color: $dark-color;
-  max-width: 250px;
+  max-width: 280px;
   line-height: 150%;
 }
 
@@ -99,7 +99,7 @@ mat-form-field {
 //}
 
 :host ::ng-deep .mat-focused {
-  color: $light-color !important;
+  color: $main-color !important;
   .mat-form-field-label {
     color: $light-color;
   }

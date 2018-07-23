@@ -19,7 +19,8 @@ export class NoAuthComponent implements OnInit {
     FORGOT_PASSWORD: 'FORGOT_PASSWORD',
     LOG_IN: 'LOG_IN',
     RESET_PASSWORD: 'RESET_PASSWORD',
-    SIGN_UP: 'SIGN_UP'
+    SIGN_UP: 'SIGN_UP',
+    VERIFY_EMAIL: 'VERIFY_EMAIL'
   };
 
   public currentView: string = this.VIEWS.SIGN_UP;
@@ -45,11 +46,22 @@ export class NoAuthComponent implements OnInit {
 
   ngOnInit() {
     this.authService.user.subscribe(user => {
-      this.authenticated = !!user;
-      if (!!user) {
-        this.router.navigate(['/home']);
-      }
+      this.examineUserThenRedirect(user);
     });
+  }
+
+  examineUserThenRedirect(user: firebase.User, waveEmailResend?: boolean): void {
+    this.authenticated = !!user;
+    if (!!user) {
+      if (user.emailVerified || this.authService.hasProviderThatNeedsNoEmailVerification(user)) {
+        this.router.navigate(['/home']);
+      } else {
+        if (!waveEmailResend) {
+          user.sendEmailVerification();
+        }
+        this.changeView(this.VIEWS.VERIFY_EMAIL); 
+      }
+    }
   }
 
   changeView(view: string): void {
@@ -88,6 +100,11 @@ export class NoAuthComponent implements OnInit {
   	this.authService.login(this.typedEmail, this.typedPassword)
     .then(value => {
       console.log('Nice, it worked!');
+      console.log(value);
+      // In the case where an unverified user tries to login and is already logged in,
+      // the subscription declared in ngInit won't be called, so forward to email verification page using currentUser
+      const currentUser = this.authService.getCurrentUser();
+      this.examineUserThenRedirect(currentUser, true);
     })
     .catch(err => {
       console.log('Something went wrong:',err.message,err.code);
@@ -122,6 +139,7 @@ export class NoAuthComponent implements OnInit {
   	this.authService.signup(this.typedEmail, this.typedPassword)
     .then(value => {
       console.log('Success!', value);
+
     })
     .catch(err => {
       console.log('Something went wrong:',err.message, err.code);
@@ -213,8 +231,7 @@ export class NoAuthComponent implements OnInit {
       // The firebase.auth.AuthCredential type that was used.
       var credential = error.credential;
       // ...
-});
-  
+    });
   }
 
   logoutClicked() {

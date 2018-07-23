@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.authService.user.subscribe(user => {
-      if (!user) {
+      if (!user ||
+          (!user.emailVerified && !this.authService.hasProviderThatNeedsNoEmailVerification(user))) {
         this.authenticated = false;
         this.router.navigate(['/']);
       } else {

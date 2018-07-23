@@ -14,6 +14,11 @@ export class AuthService {
     this.user = firebaseAuth.authState;
   }
 
+  getCurrentUser() {
+    console.log(this.firebaseAuth.auth.currentUser);
+    return this.firebaseAuth.auth.currentUser;
+  }
+
   signup(email: string, password: string) {
     if (this.ALLOWED_EMAILS.length === 0 || 
         !!this.ALLOWED_EMAILS.includes(email)) {
@@ -55,6 +60,18 @@ export class AuthService {
     return this.firebaseAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
     );
+  }
+
+  hasProviderThatNeedsNoEmailVerification(user: firebase.User): boolean {
+    const providers = user.providerData;
+    for (let i = 0; i < providers.length; i += 1) {
+      if (providers[i].providerId === 'twitter.com') {
+        return true;
+      } else if ( providers[i].providerId === 'facebook.com') {
+        return true;
+      }
+    }
+    return false;
   }
 
   private ALLOWED_EMAILS = [
