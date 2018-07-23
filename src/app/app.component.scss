@@ -49,6 +49,16 @@ mat-checkbox {
   margin-right: 15px;
 }
 
+mat-form-field {
+  font-family: PROXIMANOVA-LT;
+  letter-spacing: 1px;
+  text-indent: 10px;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+  margin-bottom: 15px;
+}
+
 mat-toolbar {
   display: flex;
   justify-content: space-between;

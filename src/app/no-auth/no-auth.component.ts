@@ -23,8 +23,12 @@ export class NoAuthComponent implements OnInit {
   };
 
   public currentView: string = this.VIEWS.SIGN_UP;
+  public termsAgreed: boolean;
+  public termsNotAgreedError: boolean = false;
   public typedEmail: string;
   public typedPassword: string;
+  public typedConfirmPassword: string;
+  public passwordsDontMatch: boolean;
   public authenticated: boolean;
   public emailOrPasswordIncorrect: boolean;
   public userAlreadyExists: boolean;
@@ -32,6 +36,7 @@ export class NoAuthComponent implements OnInit {
   public invalidEmail: boolean;
   public weakPassword: boolean;
   public emailAlreadyInUse: boolean;
+  public emailBlank : boolean;
 
   constructor(public authService: AuthService, public router: Router) { }
 
@@ -59,6 +64,9 @@ export class NoAuthComponent implements OnInit {
     this.weakPassword = false;
     this.emailAlreadyInUse = false;
     this.emailOrPasswordIncorrect = false;
+    this.passwordsDontMatch = false;
+    this.emailBlank = false;
+    this.termsNotAgreedError = false;
   }
 
   loginClicked() {
@@ -76,6 +84,27 @@ export class NoAuthComponent implements OnInit {
 
   signupClicked() {
     this.clearErrors();
+
+    if (this.typedEmail === undefined || this.typedEmail === '') {
+      this.signUpError = true;
+      this.emailBlank = true;
+      return;
+    }
+    if (this.typedPassword === undefined || this.typedPassword.length < 6) {
+      this.signUpError = true;
+      this.weakPassword = true;
+      return
+    }
+    if (this.typedPassword !== this.typedConfirmPassword) {
+      this.signUpError = true;
+      this.passwordsDontMatch = true;
+      return;
+    }
+    if (!this.termsAgreed) {
+      this.signUpError = true;
+      this.termsNotAgreedError = true;
+      return;
+    }
 
   	this.authService.signup(this.typedEmail, this.typedPassword)
     .then(value => {

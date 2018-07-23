@@ -34,18 +34,28 @@
           <h3 *ngIf="currentView === VIEWS.SIGN_UP">CREATE AN ACCOUNT</h3>
 
           <mat-form-field>
-            <input matInput placeholder="Email" [(ngModel)]="typedEmail">
+            <input matInput required placeholder="Email" [(ngModel)]="typedEmail">
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Password" [(ngModel)]="typedPassword" type="password">
+            <input matInput required placeholder="Password" [(ngModel)]="typedPassword" type="password">
           </mat-form-field>
+          <mat-form-field *ngIf="currentView === VIEWS.SIGN_UP">
+            <input matInput required placeholder="Confirm password" [(ngModel)]="typedConfirmPassword" type="password">
+          </mat-form-field>
+          <span *ngIf="currentView === VIEWS.SIGN_UP">
+            <mat-checkbox [(ngModel)]="termsAgreed"></mat-checkbox>
+            I agree to the <a [routerLink]="terms">terms and conditions</a>. 
+          </span>
 
           <div class="error-messages">
             <p *ngIf="emailOrPasswordIncorrect" class="mat-body-1 mat-error">Email or password incorrect.</p>
             <p *ngIf="signUpError" class="mat-body-1 mat-error">Could not sign up user.</p>
+            <p *ngIf="emailBlank" class="mat-body-1 mat-error">Email is required.</p>
+            <p *ngIf="passwordsDontMatch" class="mat-body-1 mat-error">Passwords do not match.</p>
             <p *ngIf="invalidEmail" class="mat-body-1 mat-error">Use a valid email.</p>
             <p *ngIf="weakPassword" class="mat-body-1 mat-error">Password must be six or more characters.</p>
             <p *ngIf="emailAlreadyInUse" class="mat-body-1 mat-error">Email already in use.</p>
+            <p *ngIf="termsNotAgreedError" class="mat-body-1 mat-error">You must agree to the terms and services.</p>
           </div>
 
           <div class="side-by-side-buttons" *ngIf="!authenticated && currentView === VIEWS.LOG_IN">
@@ -72,10 +82,6 @@
                 class="bright-button half-length-button">
               SIGNUP
             </button>
-            <span>
-              <mat-checkbox></mat-checkbox>
-              I agree to the <a [routerLink]="terms">terms and conditions</a>. 
-            </span>
           </div>
 
           <h3 class='or'>- OR -</h3>
