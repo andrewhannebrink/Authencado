@@ -1,6 +1,13 @@
 $main-color: #00B092;
 $dark-color: #008064;
 $light-color: #58e3c2;
+$background-color: #ffffff;
+//$background-off-color:
+$accent-color: #F9F482;
+$off-black: #252525;
+$light-gray: rgb(247, 248, 242);
+$dark-gray: rgb(180, 180, 180);
+
 
 @font-face {
     font-family: LEAGUESPARTAN;
@@ -43,6 +50,21 @@ h3 {
   font-family: LEAGUESPARTAN;
   font-size: larger;
   text-align: center;
+  color: $off-black;
+  letter-spacing: 1px;
+}
+
+h5 {
+  font-size: medium;
+  text-align: center; 
+  color: $dark-color;
+  max-width: 250px;
+  line-height: 150%;
+}
+
+h6 {
+  color: $dark-gray;
+  font-size: small;
 }
 
 mat-checkbox {
@@ -59,10 +81,31 @@ mat-form-field {
   margin-bottom: 15px;
 }
 
+//:host ::ng-deep .mat-form-field-underline {
+//  background-color: $light-color !important;
+//}
+
+:host ::ng-deep .mat-focused {
+  .mat-form-field-label {
+    color: $light-color;
+  }
+  .mat-form-field-ripple {
+    border-color: $light-color !important;
+    background-color: $light-color !important;
+    color: $light-color !important;
+  }
+}
+
+
+
 mat-toolbar {
   display: flex;
   justify-content: space-between;
   background-color: $main-color !important;
+
+  a {
+    color: $background-color;
+  }
 }
 
 mat-form-field {
@@ -92,6 +135,7 @@ span {
 }
 
 .page-wrapper {
+  background-color: $background-color;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -124,10 +168,10 @@ span {
 
 //TODO
 .subtle-button {
-  color: rgb(180, 180, 180);
+  color: $dark-gray;
   font-size: 14px;
   letter-spacing: 1px;
-  background-color: rgb(247, 248, 242);
+  background-color: $light-gray;
 }
 .success {
   color: limegreen;
@@ -137,6 +181,7 @@ span {
   font-family: LEAGUESPARTAN;
   font-size: xx-large;
   letter-spacing: 4px;
+  color: $background-color;
 }
 .twitter-blue {
   background-color: rgb(57, 169, 241) !important;

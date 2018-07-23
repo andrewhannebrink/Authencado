@@ -36,3 +36,7 @@ button {
   min-width: 100%;
   flex-wrap: wrap-reverse;
 }
+
+.side-by-side-reverse-wrap-override {
+  flex-wrap: wrap !important;
+}

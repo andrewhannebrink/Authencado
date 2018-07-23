@@ -72,6 +72,13 @@ export class NoAuthComponent implements OnInit {
   loginClicked() {
     this.clearErrors();
 
+    if (this.typedEmail === undefined || 
+        this.typedEmail === '' ||
+        this.typedPassword === undefined ||
+        this.typedPassword === '') {
+      this.emailOrPasswordIncorrect = true;
+    }
+
   	this.authService.login(this.typedEmail, this.typedPassword)
     .then(value => {
       console.log('Nice, it worked!');
@@ -124,6 +131,13 @@ export class NoAuthComponent implements OnInit {
 
   }
 
+  resetPasswordClicked(): void {
+    this.clearErrors();
+
+    //TODO
+    this.changeView(this.VIEWS.RESET_PASSWORD);
+  }
+
   twitterLoginClicked() {
     this.authService.twitterLogin()
     .then(result => {
@@ -160,6 +174,7 @@ export class NoAuthComponent implements OnInit {
       var email = error.email;
       // The firebase.auth.AuthCredential type that was used.
       var credential = error.credential;
+      console.log(error);
     });
   }
 

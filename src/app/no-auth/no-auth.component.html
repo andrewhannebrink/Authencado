@@ -1,6 +1,6 @@
 <div>
-  <mat-toolbar color="primary">
-    <span class="title">🔑 AUTH APP</span>
+  <mat-toolbar>
+    <span class="title">🔑 Auth App</span>
     <span class="example-spacer"></span>
     <div fxShow="true" fxHide.lt-sm="true">
       <!-- The following menu items will be hidden on both SM and XS screen sizes -->
@@ -84,7 +84,8 @@
             </button>
           </div>
 
-          <h3 class='or'>- OR -</h3>
+          <h3>- OR -</h3>
+
           <button mat-button 
               *ngIf="!authenticated" 
               (click)=twitterLoginClicked() 
@@ -108,8 +109,59 @@
               (click)=logoutClicked()>
             Log out
           </button>
-
         </div>
+
+        <div class="login-wrapper" *ngIf="currentView === VIEWS.FORGOT_PASSWORD">
+          <h3>RESET YOUR PASSWORD</h3>
+          <mat-form-field>
+            <input matInput placeholder="Enter your email">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Enter the code shown">
+          </mat-form-field>
+
+          <div class="side-by-side-buttons side-by-side-reverse-wrap-override">
+            <button mat-button
+                class="subtle-button half-length-button">
+              CAPTCHA HERE
+            </button>
+            <button mat-button 
+                (click)=resetPasswordClicked() 
+                class="bright-button half-length-button">
+              RESET PASSWORD 
+            </button>
+          </div>
+
+          <h5>
+            An email with a link to reset your password will be sent to you.
+          </h5>
+        </div>
+
+        <div class="login-wrapper" *ngIf="currentView === VIEWS.RESET_PASSWORD">
+          <h3>YOUR REQUEST HAS BEEN RECEIVED</h3>
+
+          <h5>
+            Please check your email inbox in 5 minutes and follow the password reset instructions.
+          </h5>
+
+          <h6>
+            Did not receive the email yet? Check your spam folder. 
+          </h6>
+
+          <div class="side-by-side-buttons side-by-side-reverse-wrap-override">
+            <button mat-button
+                (click)=changeView(VIEWS.FORGOT_PASSWORD) 
+                class="subtle-button half-length-button">
+              RESEND 
+            </button>
+            <button mat-button 
+                (click)=changeView(VIEWS.LOG_IN) 
+                class="bright-button half-length-button">
+              LOGIN 
+            </button>
+          </div>
+        </div>
+
         <footer>
           <div class="rights">All rights reserved.</div>
         </footer>
