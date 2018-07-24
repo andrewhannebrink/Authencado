@@ -48,6 +48,7 @@ import { HelpCenterComponent } from './help-center/help-center.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GreetingDropDownComponent } from './greeting-drop-down/greeting-drop-down.component';
+import { AuthMobileSidenavComponent } from './auth-mobile-sidenav/auth-mobile-sidenav.component';
 
 
 
@@ -65,7 +66,8 @@ import { GreetingDropDownComponent } from './greeting-drop-down/greeting-drop-do
     HelpCenterComponent,
     ExploreComponent,
     ProfileComponent,
-    GreetingDropDownComponent
+    GreetingDropDownComponent,
+    AuthMobileSidenavComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase, 'fcc-book-trading'),

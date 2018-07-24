@@ -24,58 +24,12 @@
   </mat-tab-group>
 
   <mat-sidenav-container fxFlexFill>
+
     <mat-sidenav #sidenav position="end" fxLayout="column">
-      <div fxLayout="column">
-        <button mat-button 
-            (click)="sidenav.toggle() && changeView(VIEWS.EXPLORE)" 
-            class="main-category">
-          <fa name="far fa-window-maximize"></fa>
-          Dashboard
-        </button>
-        <button  mat-button
-            (click)="sidenav.toggle() && changeView(VIEWS.PROFILE)" 
-            class="main-category">
-          <fa name="fas fa-user"></fa>
-          Profile
-        </button>
-        <button mat-button 
-            (click)="sidenav.toggle() && changeView(VIEWS.ACCOUNT_DETAILS)" 
-            class="main-category">
-          <fa name="fas fa-wrench"></fa>
-          Settings
-        </button>
-        <button mat-button 
-            (click)="sidenav.toggle() && changeView(VIEWS.ACCOUNT_DETAILS)" 
-            class="sub-option">
-          <fa name="fas fa-edit"></fa>
-          Account
-        </button>
-        <button mat-button 
-            (click)="sidenav.toggle() && changeView(VIEWS.PASSWORD)" 
-            class="sub-option">
-          <fa name="fas fa-key"></fa>
-          Password
-        </button>
-        <button mat-button 
-            (click)="sidenav.toggle() && changeView(VIEWS.PAYMENT)"
-            class="sub-option">
-          <fa name="far fa-credit-card"></fa>
-          Payment
-        </button>
-        <button mat-button 
-            (click)="sidenav.toggle() && changeView(VIEWS.HELP)" 
-            class="main-category">
-          <fa name="fas fa-question-circle"></fa>
-          Help 
-        </button>
-        <button mat-button 
-            (click)="sidenav.toggle() && changeView(VIEWS.LOG_OUT)"
-            class="main-category">
-          <fa name="fas fa-ban"></fa>
-          Log out
-        </button>
-      </div>
+      <app-auth-mobile-sidenav [changeView]="changeView.bind(this)">
+      </app-auth-mobile-sidenav>
     </mat-sidenav>
+    
 
     <mat-sidenav-content fxFlexFill>
 
