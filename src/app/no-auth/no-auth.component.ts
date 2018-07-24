@@ -88,6 +88,7 @@ export class NoAuthComponent implements OnInit {
   }
 
   changeView(view: string): void {
+    this.captchaGood = false;
     if (!!this.VIEWS[view]) {
       this.clearErrors();
       this.currentView = this.VIEWS[view];
@@ -112,7 +113,6 @@ export class NoAuthComponent implements OnInit {
     this.verifyEmailError = false;
     this.verifyEmailResentSuccessfully = false;
     this.captchaError = false;
-    this.captchaGood = false;
   }
 
   captchaResolved(captchaResponse: string) {
