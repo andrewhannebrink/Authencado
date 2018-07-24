@@ -45,6 +45,9 @@ export class NoAuthComponent implements OnInit {
   public verifyEmailResentSuccessfully: boolean;
   public verifyEmailError: boolean;
 
+  public captchaGood: boolean;
+  public captchaError: boolean;
+
   constructor(public authService: AuthService, public router: Router) { }
 
   ngOnInit() {
@@ -108,6 +111,13 @@ export class NoAuthComponent implements OnInit {
 
     this.verifyEmailError = false;
     this.verifyEmailResentSuccessfully = false;
+    this.captchaError = false;
+    this.captchaGood = false;
+  }
+
+  captchaResolved(captchaResponse: string) {
+    this.captchaGood = true;
+    console.log('captcha resolved!');
   }
 
   loginClicked() {
@@ -179,6 +189,11 @@ export class NoAuthComponent implements OnInit {
   }
 
   resetPasswordClicked(): void {
+    if (!this.captchaGood) {
+      this.captchaError = true;
+      return;
+    }
+
     this.clearErrors();
 
     this.authService.resetPassword(this.typedEmail)

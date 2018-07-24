@@ -114,10 +114,12 @@
             <input matInput required placeholder="Enter your email" [(ngModel)]="typedEmail">
           </mat-form-field>
 
-          <re-captcha (resolved)="resolved($event)" siteKey="6LcLxGUUAAAAAFDffXi7HnaD6dt7DmTxblaGu8nx"></re-captcha>
+          <re-captcha (resolved)="captchaResolved($event)" siteKey="6LcLxGUUAAAAAFDffXi7HnaD6dt7DmTxblaGu8nx"></re-captcha>
 
           <p *ngIf="passwordResetInvalidEmail" class="mat-body-1 mat-error">Invalid email.</p>
           <p *ngIf="userNotFound" class="mat-body-1 mat-error">Something went wrong.</p>
+          <p *ngIf="captchaError" class="mat-body-1 mat-error">Check the box.</p>
+
 
           <div class="side-by-side-buttons side-by-side-reverse-wrap-override">
             <button mat-button
