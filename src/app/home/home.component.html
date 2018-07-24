@@ -3,8 +3,19 @@
     <span class="title">🔑 Auth App</span>
     <span class="example-spacer"></span>
     <div fxShow="true" fxHide.lt-sm="true">
+
       <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-      <button mat-button>Log Out</button>
+      <button mat-button [matMenuTriggerFor]="menu" class="top-right-greeting-link">
+        Hello, Lulu <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Dashboard</button>
+        <button mat-menu-item>Profile</button>
+        <button mat-menu-item>Settings</button>
+        <button mat-menu-item>Help</button>
+        <button mat-menu-item>Log out</button>
+      </mat-menu>
+
     </div>
     <div fxShow="true" fxHide.gt-xs="true">
       <button (click)="sidenav.toggle()">
@@ -16,8 +27,24 @@
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav position="end" fxLayout="column">
       <div fxLayout="column">
-        <button (click)="sidenav.toggle()" href="#" mat-button>Close</button>
-        <button (click)="sidenav.toggle()" href="#" mat-button>Log out</button>
+        <button (click)="sidenav.toggle()" mat-button class="main-category">
+          Dashboard
+        </button>
+        <button (click)="sidenav.toggle()" mat-button class="main-category">
+          Profile
+        </button>
+        <button (click)="sidenav.toggle()" mat-button class="main-category">
+          Settings
+        </button>
+        <button mat-button (click)="sidenav.toggle()" class="sub-option">Account</button>
+        <button mat-button (click)="sidenav.toggle()" class="sub-option">Password</button>
+        <button mat-button (click)="sidenav.toggle()" class="sub-option">Payment</button>
+        <button (click)="sidenav.toggle()" mat-button class="main-category">
+          Help 
+        </button>
+        <button (click)="sidenav.toggle()" mat-button class="main-category">
+          Log out
+        </button>
       </div>
     </mat-sidenav>
 
@@ -27,7 +54,9 @@
 
 		  <div class="login-wrapper">
 
-		    <h3>ARE YOU SURE YOU WANT TO LOG OUT?</h3>
+		    <h3>LOG OUT FROM YOUR ACCOUNT</h3>
+
+        <h5>Are you sure you want to continue?</h5>
 
 		    <div class="side-by-side-buttons">
               <button mat-button

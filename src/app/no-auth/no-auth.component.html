@@ -18,10 +18,31 @@
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav position="end" fxLayout="column">
       <div fxLayout="column">
-        <a (click)="sidenav.toggle()" href="#" mat-button>Close</a>
-        <a (click)="sidenav.toggle() && changeView(VIEWS.DEMO)" href="#" mat-button>Demo</a>
-        <a (click)="sidenav.toggle() && changeView(VIEWS.SIGN_UP)" href="#" mat-button>Sign Up</a>
-        <a (click)="sidenav.toggle() && changeView(VIEWS.LOG_IN)" href="#" mat-button>Log In</a>
+        <button mat-button 
+            (click)="sidenav.toggle() && changeView(VIEWS.LOG_IN)"
+            class="main-category">
+          Log In
+        </button>
+        <button mat-button 
+            (click)="sidenav.toggle() && changeView(VIEWS.SIGN_UP)"
+            class="main-category">
+          Sign Up
+        </button>
+        <button mat-button 
+            (click)="sidenav.toggle() && changeView(VIEWS.DEMO)"
+            class="main-category">
+          Demo
+        </button>
+        <button mat-button 
+            (click)="sidenav.toggle() && changeView(VIEWS.DEMO)"
+            class="sub-option">
+          Dashboard
+        </button>
+        <button mat-button 
+            (click)="sidenav.toggle() && changeView(VIEWS.DEMO)"
+            class="sub-option">
+          Profile
+        </button>
       </div>
     </mat-sidenav>
 
@@ -195,7 +216,7 @@
         </div>
 
         <app-footer></app-footer>
-        
+
       </div>
 
     </mat-sidenav-content>

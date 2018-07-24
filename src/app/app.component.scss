@@ -108,7 +108,22 @@ mat-form-field {
   }
 }
 
+.mat-sidenav {
+  width: 200px;
+  
+  .main-category {
+    text-align: left !important;
+    font-size: large;
+    height: 65px;
+  }
 
+  .sub-option {
+    text-align: left !important;
+    font-size: medium;
+    margin-left: 15px;
+    height: 50px;
+  }
+}
 
 mat-toolbar {
   display: flex;
