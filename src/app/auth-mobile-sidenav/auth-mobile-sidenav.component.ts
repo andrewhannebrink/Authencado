@@ -9,6 +9,9 @@ import { VIEWS } from '../home/home.component';
 export class AuthMobileSidenavComponent implements OnInit {
 
   @Input() changeView: Function;
+  @Input() sidenavToggle: Function;
+
+  public VIEWS = VIEWS;
 
   constructor() { }
 

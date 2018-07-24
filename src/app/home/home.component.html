@@ -17,16 +17,20 @@
     </div>
   </mat-toolbar>
 
-  <mat-tab-group class="sub-nav-bar">
-    <mat-tab label="ACCOUNT"></mat-tab>
-    <mat-tab label="PASSWORD"></mat-tab>
-    <mat-tab label="PAYMENT"></mat-tab>
-  </mat-tab-group>
+  <div fxShow="true" fxHide.lt-sm="true">
+    <mat-tab-group class="sub-nav-bar">
+      <mat-tab label="ACCOUNT"></mat-tab>
+      <mat-tab label="PASSWORD"></mat-tab>
+      <mat-tab label="PAYMENT"></mat-tab>
+    </mat-tab-group>
+  </div>
 
   <mat-sidenav-container fxFlexFill>
 
     <mat-sidenav #sidenav position="end" fxLayout="column">
-      <app-auth-mobile-sidenav [changeView]="changeView.bind(this)">
+      <app-auth-mobile-sidenav 
+          [changeView]="changeView.bind(this)"
+          [sidenavToggle]="sidenav.toggle.bind(sidenav)">
       </app-auth-mobile-sidenav>
     </mat-sidenav>
     
