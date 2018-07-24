@@ -1,0 +1,32 @@
+<div fxLayout="column" class="drop-menu-item">
+  <button mat-button 
+      (click)="sidenavToggle() && changeNoAuthView(NO_AUTH_VIEWS.LOG_IN)"
+      class="main-category">
+    <fa name="fas fa-chevron-circle-right"></fa>
+    Log In
+  </button>
+  <button mat-button 
+      (click)="sidenavToggle() && changeNoAuthView(NO_AUTH_VIEWS.SIGN_UP)"
+      class="main-category">
+    <fa name="fas fa-user-plus"></fa>
+    Sign Up
+  </button>
+  <button mat-button 
+      (click)="sidenavToggle() && changeNoAuthView(NO_AUTH_VIEWS.DEMO)"
+      class="main-category">
+    <fa name="fas fa-desktop"></fa>
+    Demo
+  </button>
+  <button mat-button 
+      (click)="sidenavToggle() && changeNoAuthView(NO_AUTH_VIEWS.DEMO)"
+      class="sub-option">
+    <fa name="far fa-window-maximize"></fa>
+    Dashboard
+  </button>
+  <button mat-button 
+      (click)="sidenavToggle() && changeNoAuthView(NO_AUTH_VIEWS.DEMO)"
+      class="sub-option">
+    <fa name="fas fa-user"></fa>
+    Profile
+  </button>
+</div>

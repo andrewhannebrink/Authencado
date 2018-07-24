@@ -9,46 +9,18 @@
       <button mat-button (click)="changeView(VIEWS.LOG_IN)" class="top-right-greeting-link">Log In</button>
     </div>
     <div fxShow="true" fxHide.gt-xs="true">
-      <a href="#" (click)="sidenav.toggle()">
+      <a href="#" (click)="noAuthSideNav.toggle()">
         <mat-icon class='mobile-menu-icon'>view_headline</mat-icon>
       </a>
     </div>
   </mat-toolbar>
 
   <mat-sidenav-container fxFlexFill>
-    <mat-sidenav #sidenav position="end" fxLayout="column">
-      <div fxLayout="column">
-        <button mat-button 
-            (click)="sidenav.toggle() && changeView(VIEWS.LOG_IN)"
-            class="main-category">
-          <fa name="fas fa-chevron-circle-right"></fa>
-          Log In
-        </button>
-        <button mat-button 
-            (click)="sidenav.toggle() && changeView(VIEWS.SIGN_UP)"
-            class="main-category">
-          <fa name="fas fa-user-plus"></fa>
-          Sign Up
-        </button>
-        <button mat-button 
-            (click)="sidenav.toggle() && changeView(VIEWS.DEMO)"
-            class="main-category">
-          <fa name="fas fa-desktop"></fa>
-          Demo
-        </button>
-        <button mat-button 
-            (click)="sidenav.toggle() && changeView(VIEWS.DEMO)"
-            class="sub-option">
-          <fa name="far fa-window-maximize"></fa>
-          Dashboard
-        </button>
-        <button mat-button 
-            (click)="sidenav.toggle() && changeView(VIEWS.DEMO)"
-            class="sub-option">
-          <fa name="fas fa-user"></fa>
-          Profile
-        </button>
-      </div>
+    <mat-sidenav #noAuthSideNav position="end" fxLayout="column">
+      <app-no-auth-mobile-sidenav
+          [changeNoAuthView]="changeView.bind(this)"
+          [sidenavToggle]="noAuthSideNav.toggle.bind(noAuthSideNav)">
+      </app-no-auth-mobile-sidenav>
     </mat-sidenav>
 
     <mat-sidenav-content fxFlexFill>

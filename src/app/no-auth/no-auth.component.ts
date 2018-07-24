@@ -14,14 +14,7 @@ import { Router } from '@angular/router';
 export class NoAuthComponent implements OnInit {
 
 
-  public VIEWS = {
-    DEMO: 'DEMO',
-    FORGOT_PASSWORD: 'FORGOT_PASSWORD',
-    LOG_IN: 'LOG_IN',
-    RESET_PASSWORD: 'RESET_PASSWORD',
-    SIGN_UP: 'SIGN_UP',
-    VERIFY_EMAIL: 'VERIFY_EMAIL'
-  };
+  public VIEWS = NO_AUTH_VIEWS;
 
   public currentView: string = this.VIEWS.SIGN_UP;
   public termsAgreed: boolean;
@@ -277,4 +270,13 @@ export class NoAuthComponent implements OnInit {
   }
 
 }
+
+export const NO_AUTH_VIEWS = {
+  DEMO: 'DEMO',
+  FORGOT_PASSWORD: 'FORGOT_PASSWORD',
+  LOG_IN: 'LOG_IN',
+  RESET_PASSWORD: 'RESET_PASSWORD',
+  SIGN_UP: 'SIGN_UP',
+  VERIFY_EMAIL: 'VERIFY_EMAIL'
+};
 
