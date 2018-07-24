@@ -1,41 +1,5 @@
-.login-wrapper {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  width: 90vw;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 15px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
 p {
   margin: 5px;
-}
-
-button {
-  margin: 15px 0px;
-  color: #efefef;
-  height: 60px;
-}
-
-.full-length-button {
-  min-width: 100%;
-}
-
-.half-length-button {
-  flex: 1;
-  min-width: 150px;
-  max-width: 100%;
-}
-
-.side-by-side-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 100%;
-  flex-wrap: wrap-reverse;
 }
 
 .side-by-side-reverse-wrap-override {

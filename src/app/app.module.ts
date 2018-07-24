@@ -35,7 +35,9 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { environment } from '../environments/environment';
 import { NoAuthComponent } from './no-auth/no-auth.component';
 import { AuthService } from './auth.service';
+import { AuthGuard } from './core/auth.guard';
 import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -44,7 +46,8 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     AppComponent,
     NoAuthComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase, 'fcc-book-trading'),
@@ -71,7 +74,10 @@ import { HomeComponent } from './home/home.component';
     RouterModule.forRoot(ROUTES),
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
