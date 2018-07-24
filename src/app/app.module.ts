@@ -47,6 +47,7 @@ import { UpdatePaymentMethodsComponent } from './update-payment-methods/update-p
 import { HelpCenterComponent } from './help-center/help-center.component';
 import { ExploreComponent } from './explore/explore.component';
 import { ProfileComponent } from './profile/profile.component';
+import { GreetingDropDownComponent } from './greeting-drop-down/greeting-drop-down.component';
 
 
 
@@ -63,7 +64,8 @@ import { ProfileComponent } from './profile/profile.component';
     UpdatePaymentMethodsComponent,
     HelpCenterComponent,
     ExploreComponent,
-    ProfileComponent
+    ProfileComponent,
+    GreetingDropDownComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase, 'fcc-book-trading'),

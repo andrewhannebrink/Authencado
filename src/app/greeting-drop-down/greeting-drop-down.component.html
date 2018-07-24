@@ -1,0 +1,36 @@
+<button mat-button [matMenuTriggerFor]="menu" class="top-right-greeting-link">
+  Hello, Lulu <mat-icon>arrow_drop_down</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item 
+      (click)="changeView(VIEWS.EXPLORE)"
+      class="drop-menu-item">
+    <fa name="far fa-window-maximize"></fa>
+    Dashboard
+  </button>
+  <button mat-menu-item 
+      (click)="changeView(VIEWS.PROFILE)"
+      class="drop-menu-item">
+    <fa name="fas fa-user"></fa>
+    Profile
+  </button>
+  <button mat-menu-item 
+      (click)="changeView(VIEWS.ACCOUNT_DETAILS)" 
+      class="drop-menu-item">
+    <fa name="fas fa-wrench"></fa>
+    Settings
+  </button>
+  <button mat-menu-item 
+      (click)="changeView(VIEWS.HELP)"
+      class="drop-menu-item">
+    <fa name="fas fa-question-circle"></fa>
+    Help
+  </button>
+  <button mat-menu-item 
+      (click)="changeView(VIEWS.LOG_OUT)"
+      class="drop-menu-item">
+    <fa name="fas fa-ban"></fa>
+    Log out
+  </button>
+</mat-menu>

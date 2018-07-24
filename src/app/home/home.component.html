@@ -5,41 +5,9 @@
     <div fxShow="true" fxHide.lt-sm="true">
 
       <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-      <button mat-button [matMenuTriggerFor]="menu" class="top-right-greeting-link">
-        Hello, Lulu <mat-icon>arrow_drop_down</mat-icon>
-      </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item 
-            (click)="changeView(VIEWS.EXPLORE)"
-            class="drop-menu-item">
-          <fa name="far fa-window-maximize"></fa>
-          Dashboard
-        </button>
-        <button mat-menu-item 
-            (click)="changeView(VIEWS.PROFILE)"
-            class="drop-menu-item">
-          <fa name="fas fa-user"></fa>
-          Profile
-        </button>
-        <button mat-menu-item 
-            (click)="changeView(VIEWS.ACCOUNT_DETAILS)" 
-            class="drop-menu-item">
-          <fa name="fas fa-wrench"></fa>
-          Settings
-        </button>
-        <button mat-menu-item 
-            (click)="changeView(VIEWS.HELP)"
-            class="drop-menu-item">
-          <fa name="fas fa-question-circle"></fa>
-          Help
-        </button>
-        <button mat-menu-item 
-            (click)="changeView(VIEWS.LOG_OUT)"
-            class="drop-menu-item">
-          <fa name="fas fa-ban"></fa>
-          Log out
-        </button>
-      </mat-menu>
+      <app-greeting-drop-down [changeView]="changeView.bind(this)">
+      </app-greeting-drop-down>
+
 
     </div>
     <div fxShow="true" fxHide.gt-xs="true">
