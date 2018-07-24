@@ -9,25 +9,33 @@
         Hello, Lulu <mat-icon>arrow_drop_down</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item class="drop-menu-item">
+        <button mat-menu-item 
+            (click)="changeView(VIEWS.EXPLORE)"
+            class="drop-menu-item">
           <fa name="far fa-window-maximize"></fa>
           Dashboard
         </button>
-        <button mat-menu-item class="drop-menu-item">
+        <button mat-menu-item 
+            (click)="changeView(VIEWS.PROFILE)"
+            class="drop-menu-item">
           <fa name="fas fa-user"></fa>
           Profile
         </button>
-        <button mat-menu-item class="drop-menu-item">
+        <button mat-menu-item 
+            (click)="changeView(VIEWS.ACCOUNT_DETAILS)" 
+            class="drop-menu-item">
           <fa name="fas fa-wrench"></fa>
           Settings
         </button>
-        <button mat-menu-item class="drop-menu-item">
+        <button mat-menu-item 
+            (click)="changeView(VIEWS.HELP)"
+            class="drop-menu-item">
           <fa name="fas fa-question-circle"></fa>
           Help
         </button>
         <button mat-menu-item 
-            class="drop-menu-item"
-            (click)="changeView(VIEWS.LOG_OUT)">
+            (click)="changeView(VIEWS.LOG_OUT)"
+            class="drop-menu-item">
           <fa name="fas fa-ban"></fa>
           Log out
         </button>
@@ -50,31 +58,45 @@
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav position="end" fxLayout="column">
       <div fxLayout="column">
-        <button (click)="sidenav.toggle()" mat-button class="main-category">
+        <button mat-button 
+            (click)="sidenav.toggle() && changeView(VIEWS.EXPLORE)" 
+            class="main-category">
           <fa name="far fa-window-maximize"></fa>
           Dashboard
         </button>
-        <button (click)="sidenav.toggle()" mat-button class="main-category">
+        <button  mat-button
+            (click)="sidenav.toggle() && changeView(VIEWS.PROFILE)" 
+            class="main-category">
           <fa name="fas fa-user"></fa>
           Profile
         </button>
-        <button (click)="sidenav.toggle()" mat-button class="main-category">
+        <button mat-button 
+            (click)="sidenav.toggle() && changeView(VIEWS.ACCOUNT_DETAILS)" 
+            class="main-category">
           <fa name="fas fa-wrench"></fa>
           Settings
         </button>
-        <button mat-button (click)="sidenav.toggle()" class="sub-option">
+        <button mat-button 
+            (click)="sidenav.toggle() && changeView(VIEWS.ACCOUNT_DETAILS)" 
+            class="sub-option">
           <fa name="fas fa-edit"></fa>
           Account
         </button>
-        <button mat-button (click)="sidenav.toggle()" class="sub-option">
+        <button mat-button 
+            (click)="sidenav.toggle() && changeView(VIEWS.PASSWORD)" 
+            class="sub-option">
           <fa name="fas fa-key"></fa>
           Password
         </button>
-        <button mat-button (click)="sidenav.toggle()" class="sub-option">
+        <button mat-button 
+            (click)="sidenav.toggle() && changeView(VIEWS.PAYMENT)"
+            class="sub-option">
           <fa name="far fa-credit-card"></fa>
           Payment
         </button>
-        <button (click)="sidenav.toggle()" mat-button class="main-category">
+        <button mat-button 
+            (click)="sidenav.toggle() && changeView(VIEWS.HELP)" 
+            class="main-category">
           <fa name="fas fa-question-circle"></fa>
           Help 
         </button>
@@ -91,7 +113,37 @@
 
 		<div class="page-wrapper">
 
-      <app-logout *ngIf="currentView === VIEWS.LOG_OUT"></app-logout>
+      <app-explore
+          *ngIf="currentView === VIEWS.EXPLORE">
+      </app-explore>
+
+      <app-profile
+          *ngIf="currentView === VIEWS.PROFILE">
+      </app-profile>
+
+      <app-account-details
+          *ngIf="currentView === VIEWS.ACCOUNT_DETAILS"
+          [changeView]="changeView.bind(this)">
+      </app-account-details>
+
+      <app-auth-change-password 
+          *ngIf="currentView === VIEWS.PASSWORD"
+          [changeView]="changeView.bind(this)">
+      </app-auth-change-password>
+
+      <app-update-payment-methods
+          *ngIf="currentView === VIEWS.PAYMENT"
+          [changeView]="changeView.bind(this)">
+      </app-update-payment-methods>
+
+      <app-help-center
+          *ngIf="currentView === VIEWS.HELP">
+      </app-help-center>
+
+      <app-logout 
+          *ngIf="currentView === VIEWS.LOG_OUT" 
+          [changeView]="changeView.bind(this)">
+      </app-logout>
 
 		  <app-footer></app-footer>
 		  

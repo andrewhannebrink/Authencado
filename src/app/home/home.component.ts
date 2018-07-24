@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
 
 export const VIEWS = {
   ACCOUNT_DETAILS: 'ACCOUNT_DETAILS',
-  DASHBOARD: 'DASHBOARD',
+  EXPLORE: 'EXPLORE',
   HELP: 'HELP',
   LOG_OUT: 'LOG_OUT',
   PASSWORD: 'PASSWORD',

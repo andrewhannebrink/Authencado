@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { VIEWS } from '../home/home.component';
 
 @Component({
@@ -8,9 +9,11 @@ import { VIEWS } from '../home/home.component';
 })
 export class LogoutComponent implements OnInit {
 
+  @Input() changeView: Function;
+
   public VIEWS = VIEWS;
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit() {
   }

@@ -41,6 +41,12 @@ import { AuthGuard } from './core/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { AuthChangePasswordComponent } from './auth-change-password/auth-change-password.component';
+import { UpdatePaymentMethodsComponent } from './update-payment-methods/update-payment-methods.component';
+import { HelpCenterComponent } from './help-center/help-center.component';
+import { ExploreComponent } from './explore/explore.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -51,7 +57,13 @@ import { LogoutComponent } from './logout/logout.component';
     NoAuthComponent,
     HomeComponent,
     FooterComponent,
-    LogoutComponent
+    LogoutComponent,
+    AccountDetailsComponent,
+    AuthChangePasswordComponent,
+    UpdatePaymentMethodsComponent,
+    HelpCenterComponent,
+    ExploreComponent,
+    ProfileComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase, 'fcc-book-trading'),
