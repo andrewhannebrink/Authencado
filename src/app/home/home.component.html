@@ -9,11 +9,26 @@
         Hello, Lulu <mat-icon>arrow_drop_down</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>Dashboard</button>
-        <button mat-menu-item>Profile</button>
-        <button mat-menu-item>Settings</button>
-        <button mat-menu-item>Help</button>
-        <button mat-menu-item>Log out</button>
+        <button mat-menu-item class="drop-menu-item">
+          <fa name="far fa-window-maximize"></fa>
+          Dashboard
+        </button>
+        <button mat-menu-item class="drop-menu-item">
+          <fa name="fas fa-user"></fa>
+          Profile
+        </button>
+        <button mat-menu-item class="drop-menu-item">
+          <fa name="fas fa-wrench"></fa>
+          Settings
+        </button>
+        <button mat-menu-item class="drop-menu-item">
+          <fa name="fas fa-question-circle"></fa>
+          Help
+        </button>
+        <button mat-menu-item class="drop-menu-item">
+          <fa name="fas fa-ban"></fa>
+          Log out
+        </button>
       </mat-menu>
 
     </div>
@@ -28,21 +43,35 @@
     <mat-sidenav #sidenav position="end" fxLayout="column">
       <div fxLayout="column">
         <button (click)="sidenav.toggle()" mat-button class="main-category">
+          <fa name="far fa-window-maximize"></fa>
           Dashboard
         </button>
         <button (click)="sidenav.toggle()" mat-button class="main-category">
+          <fa name="fas fa-user"></fa>
           Profile
         </button>
         <button (click)="sidenav.toggle()" mat-button class="main-category">
+          <fa name="fas fa-wrench"></fa>
           Settings
         </button>
-        <button mat-button (click)="sidenav.toggle()" class="sub-option">Account</button>
-        <button mat-button (click)="sidenav.toggle()" class="sub-option">Password</button>
-        <button mat-button (click)="sidenav.toggle()" class="sub-option">Payment</button>
+        <button mat-button (click)="sidenav.toggle()" class="sub-option">
+          <fa name="fas fa-edit"></fa>
+          Account
+        </button>
+        <button mat-button (click)="sidenav.toggle()" class="sub-option">
+          <fa name="fas fa-key"></fa>
+          Password
+        </button>
+        <button mat-button (click)="sidenav.toggle()" class="sub-option">
+          <fa name="far fa-credit-card"></fa>
+          Payment
+        </button>
         <button (click)="sidenav.toggle()" mat-button class="main-category">
+          <fa name="fas fa-question-circle"></fa>
           Help 
         </button>
         <button (click)="sidenav.toggle()" mat-button class="main-category">
+          <fa name="fas fa-ban"></fa>
           Log out
         </button>
       </div>

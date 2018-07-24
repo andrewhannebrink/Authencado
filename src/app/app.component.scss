@@ -49,7 +49,7 @@ footer {
 
 h3 {
   font-family: LEAGUESPARTAN;
-  font-size: larger;
+  font-size: x-large;
   text-align: center;
   color: $off-black;
   letter-spacing: 1px;
@@ -108,9 +108,9 @@ mat-form-field {
   }
 }
 
-.mat-sidenav {
+.mat-sidenav, .drop-menu-item {
   width: 200px;
-  
+
   .main-category {
     text-align: left !important;
     font-size: large;
@@ -119,9 +119,15 @@ mat-form-field {
 
   .sub-option {
     text-align: left !important;
-    font-size: medium;
-    margin-left: 15px;
+    font-size: small;
+    padding-left: 55px;
     height: 50px;
+  }
+
+  fa {
+    margin: 0px !important;
+    margin-right: 10px !important;
+    color: $dark-color;
   }
 }
 
