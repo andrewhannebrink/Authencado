@@ -9,11 +9,31 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  public authenticated: boolean;
+  public VIEWS = VIEWS;
+
+  public currentView: string;
 
   constructor(public router: Router,
     public authService: AuthService) { }
 
+  changeView(view: string): void {
+    if (!!this.VIEWS[view]) {
+      this.currentView = this.VIEWS[view];
+    } else {
+      console.log('View: ' + view + ' does not exist.');
+    }
+  }
+
   ngOnInit() { }
 
+}
+
+export const VIEWS = {
+  ACCOUNT_DETAILS: 'ACCOUNT_DETAILS',
+  DASHBOARD: 'DASHBOARD',
+  HELP: 'HELP',
+  LOG_OUT: 'LOG_OUT',
+  PASSWORD: 'PASSWORD',
+  PAYMENT: 'PAYMENT',
+  PROFILE: 'PROFILE'
 }

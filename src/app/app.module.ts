@@ -24,6 +24,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 
 import { FormsModule } from '@angular/forms';
@@ -38,6 +40,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './core/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 
@@ -47,7 +50,8 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     NoAuthComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    LogoutComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase, 'fcc-book-trading'),
@@ -68,6 +72,7 @@ import { FooterComponent } from './footer/footer.component';
     MatRadioModule,
     MatSelectModule,
     MatSidenavModule,
+    MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
     RecaptchaModule.forRoot(),

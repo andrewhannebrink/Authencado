@@ -25,7 +25,9 @@
           <fa name="fas fa-question-circle"></fa>
           Help
         </button>
-        <button mat-menu-item class="drop-menu-item">
+        <button mat-menu-item 
+            class="drop-menu-item"
+            (click)="changeView(VIEWS.LOG_OUT)">
           <fa name="fas fa-ban"></fa>
           Log out
         </button>
@@ -38,6 +40,12 @@
       </button>
     </div>
   </mat-toolbar>
+
+  <mat-tab-group class="sub-nav-bar">
+    <mat-tab label="ACCOUNT"></mat-tab>
+    <mat-tab label="PASSWORD"></mat-tab>
+    <mat-tab label="PAYMENT"></mat-tab>
+  </mat-tab-group>
 
   <mat-sidenav-container fxFlexFill>
     <mat-sidenav #sidenav position="end" fxLayout="column">
@@ -70,7 +78,9 @@
           <fa name="fas fa-question-circle"></fa>
           Help 
         </button>
-        <button (click)="sidenav.toggle()" mat-button class="main-category">
+        <button mat-button 
+            (click)="sidenav.toggle() && changeView(VIEWS.LOG_OUT)"
+            class="main-category">
           <fa name="fas fa-ban"></fa>
           Log out
         </button>
@@ -81,25 +91,7 @@
 
 		<div class="page-wrapper">
 
-		  <div class="login-wrapper">
-
-		    <h3>LOG OUT FROM YOUR ACCOUNT</h3>
-
-        <h5>Are you sure you want to continue?</h5>
-
-		    <div class="side-by-side-buttons">
-              <button mat-button
-                  class="subtle-button half-length-button">
-                Cancel
-              </button>
-              <button mat-button 
-                  (click)=authService.logout()
-                  class="bright-button half-length-button">
-                LOGOUT 
-              </button>
-            </div>
-
-		  </div>
+      <app-logout *ngIf="currentView === VIEWS.LOG_OUT"></app-logout>
 
 		  <app-footer></app-footer>
 		  

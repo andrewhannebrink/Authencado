@@ -131,6 +131,28 @@ mat-form-field {
   }
 }
 
+:host ::ng-deep .mat-tab-labels {
+  background-color: $dark-color !important;
+  margin: 0;
+  padding: 0;
+}
+
+:host ::ng-deep .mat-tab-label {
+  opacity: 1 !important;
+  color: $light-color !important;
+}
+
+:host ::ng-deep .mat-tab-label-content {
+  font-size: small;
+  font-family: PROXIMANOVA-RG;
+  letter-spacing: 1px;
+}
+
+:host ::ng-deep mat-ink-bar {
+  background-color: $accent-color !important;
+  height: 5px;
+}
+
 mat-toolbar {
   display: flex;
   justify-content: space-between;
@@ -237,6 +259,13 @@ span {
   padding: 15px;
 }
 
+.sub-nav-bar {
+  display: flex;
+  align-items: flex-end;
+  background-color: $dark-color;
+  margin: 0;
+}
+
 //TODO
 .subtle-button {
   color: $dark-gray;
@@ -252,9 +281,14 @@ span {
 .title {
   font-family: LEAGUESPARTAN;
   font-size: xx-large;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   color: $background-color;
 }
+
+.top-right-greeting-link {
+  font-size: medium;
+}
+
 .twitter-blue {
   background-color: rgb(57, 169, 241) !important;
 }

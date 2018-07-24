@@ -1,0 +1,19 @@
+<div class="login-wrapper">
+
+  <h3>LOG OUT FROM YOUR ACCOUNT</h3>
+
+  <h5>Are you sure you want to continue?</h5>
+
+  <div class="side-by-side-buttons">
+    <button mat-button
+        class="subtle-button half-length-button">
+      Cancel
+    </button>
+    <button mat-button 
+        (click)=authService.logout()
+        class="bright-button half-length-button">
+      LOGOUT 
+    </button>
+  </div>
+
+</div>
