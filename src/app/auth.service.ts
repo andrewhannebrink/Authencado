@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   getCurrentUser() {
-    console.log(this.firebaseAuth.auth.currentUser);
+    //console.log(this.firebaseAuth.auth.currentUser);
     return this.firebaseAuth.auth.currentUser;
   }
 

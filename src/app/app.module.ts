@@ -51,6 +51,7 @@ import { GreetingDropDownComponent } from './greeting-drop-down/greeting-drop-do
 import { AuthMobileSidenavComponent } from './auth-mobile-sidenav/auth-mobile-sidenav.component';
 import { NoAuthMobileSidenavComponent } from './no-auth-mobile-sidenav/no-auth-mobile-sidenav.component';
 import { NoAuthConfirmEmailComponent } from './no-auth-confirm-email/no-auth-confirm-email.component';
+import { NoAuthResetPasswordComponent } from './no-auth-reset-password/no-auth-reset-password.component';
 
 
 
@@ -71,7 +72,8 @@ import { NoAuthConfirmEmailComponent } from './no-auth-confirm-email/no-auth-con
     GreetingDropDownComponent,
     AuthMobileSidenavComponent,
     NoAuthMobileSidenavComponent,
-    NoAuthConfirmEmailComponent
+    NoAuthConfirmEmailComponent,
+    NoAuthResetPasswordComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase, 'fcc-book-trading'),
