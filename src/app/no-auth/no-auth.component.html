@@ -9,9 +9,9 @@
       <button mat-button (click)="changeView(VIEWS.LOG_IN)" class="top-right-greeting-link">Log In</button>
     </div>
     <div fxShow="true" fxHide.gt-xs="true">
-      <a href="#" (click)="noAuthSideNav.toggle()">
+      <button (click)="noAuthSideNav.toggle()">
         <mat-icon class='mobile-menu-icon'>view_headline</mat-icon>
-      </a>
+      </button>
     </div>
   </mat-toolbar>
 
