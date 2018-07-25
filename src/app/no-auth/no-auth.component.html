@@ -146,6 +146,10 @@
             *ngIf="currentView === VIEWS.VERIFY_EMAIL"
             [changeNoAuthView]="changeView.bind(this)">
         </app-no-auth-confirm-email>
+
+        <app-explore
+            *ngIf="currentView === VIEWS.DEMO">
+        </app-explore>
         
         <app-footer [currentView]="currentView"></app-footer>
 
