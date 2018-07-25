@@ -50,6 +50,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { GreetingDropDownComponent } from './greeting-drop-down/greeting-drop-down.component';
 import { AuthMobileSidenavComponent } from './auth-mobile-sidenav/auth-mobile-sidenav.component';
 import { NoAuthMobileSidenavComponent } from './no-auth-mobile-sidenav/no-auth-mobile-sidenav.component';
+import { NoAuthConfirmEmailComponent } from './no-auth-confirm-email/no-auth-confirm-email.component';
 
 
 
@@ -69,7 +70,8 @@ import { NoAuthMobileSidenavComponent } from './no-auth-mobile-sidenav/no-auth-m
     ProfileComponent,
     GreetingDropDownComponent,
     AuthMobileSidenavComponent,
-    NoAuthMobileSidenavComponent
+    NoAuthMobileSidenavComponent,
+    NoAuthConfirmEmailComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase, 'fcc-book-trading'),

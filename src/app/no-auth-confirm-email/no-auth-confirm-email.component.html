@@ -1,0 +1,32 @@
+<div class="login-wrapper">
+  <h3> CONFIRM YOUR EMAIL </h3>
+
+  <h5> 
+    Check your inbox for a confirmation email. Click the link in the email to confirm your email address.
+  </h5>
+
+  <h6>
+    Did not receive the email yet? Check your spam folder. 
+  </h6>
+
+  <div class="side-by-side-buttons side-by-side-reverse-wrap-override">
+    <button mat-button
+        (click)="resendEmailVerification()"
+        class="subtle-button half-length-button">
+      Re-send email
+    </button>
+    <button mat-button
+        (click)="changeNoAuthView(NO_AUTH_VIEWS.LOG_IN)"
+        class="bright-button half-length-button">
+      LOGIN 
+    </button>
+  </div>
+
+  <p *ngIf="verifyEmailError" class="mat-body-1 mat-error">
+    Something went wrong. Email not delivered.
+  </p>
+  <p *ngIf="verifyEmailResentSuccessfully" class="mat-body-1 success">
+    Another confirmation email was sent to {{ authService.getCurrentUser().email }}.
+  </p>
+
+</div>

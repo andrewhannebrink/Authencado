@@ -67,19 +67,6 @@ export class NoAuthComponent implements OnInit {
     }
   }
 
-  resendEmailVerification() {
-    this.clearErrors();
-
-    const user = this.authService.getCurrentUser();
-    user.sendEmailVerification()
-    .then(value => {
-      this.verifyEmailResentSuccessfully = true;
-    })
-    .catch(error => {
-      this.verifyEmailError = true;
-    })
-  }
-
   changeView(view: string): void {
     this.captchaGood = false;
     if (!!this.VIEWS[view]) {
@@ -103,8 +90,6 @@ export class NoAuthComponent implements OnInit {
     this.passwordResetInvalidEmail = false;
     this.userNotFound = false;
 
-    this.verifyEmailError = false;
-    this.verifyEmailResentSuccessfully = false;
     this.captchaError = false;
   }
 
