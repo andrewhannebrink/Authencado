@@ -3,7 +3,6 @@
     <span class="title">🔑 Auth App</span>
     <span class="example-spacer"></span>
     <div fxShow="true" fxHide.lt-sm="true">
-
       <!-- The following menu items will be hidden on both SM and XS screen sizes -->
       <app-greeting-drop-down [changeView]="changeView.bind(this)">
       </app-greeting-drop-down>
@@ -18,7 +17,11 @@
   </mat-toolbar>
 
   <div fxShow="true" fxHide.lt-sm="true">
-    <mat-tab-group class="sub-nav-bar">
+    <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+    <mat-tab-group *ngIf="BONUS_NAV_VIEWS.SETTINGS.includes(currentView)"
+          class="sub-nav-bar" 
+          (selectedTabChange)="bonusNavSettingsTabChanged($event)"
+          [selectedIndex]="getBonusNavSettingsTabIndexFromCurrentView(currentView)">
       <mat-tab label="ACCOUNT"></mat-tab>
       <mat-tab label="PASSWORD"></mat-tab>
       <mat-tab label="PAYMENT"></mat-tab>
