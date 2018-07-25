@@ -39,6 +39,18 @@ a:hover {
   color: $accent-color;
 }
 
+a.social-link {
+  color: $main-color;
+}
+
+a.social-link:hover {
+  color: $accent-color;
+}
+
+a.social-link:active {
+  color: $accent-color;
+}
+
 button {
   font-family: PROXIMANOVA-LT;
 }

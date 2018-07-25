@@ -1,6 +1,6 @@
 .tall-top-footer {
   height: auto;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .short-bottom-footer {
@@ -13,25 +13,25 @@
 
 .rights-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   min-width: 100vw;
   flex-wrap: wrap-reverse;
+  margin: 0;
 }
 
 .rights-footer-left {
-  flex: 3;
   display: flex;
   justify-content: flex-start;
-  margin: 15px;
-  min-width: 280px;
+  min-width: 220px;
+  margin: auto;
 }
 
 .rights-footer-right {
-  flex: 2;
   display: flex;
   justify-content: flex-end;
-  margin: 15px;
+  margin-bottom: 0;
+  margin: auto;
 }
 
 ul.contact-list {
@@ -42,3 +42,9 @@ ul.contact-list {
 .contact-box {
   padding: 15px;
 }
+
+.social-span {
+  font-size: x-large !important;
+  min-width: 200px;
+}
+
