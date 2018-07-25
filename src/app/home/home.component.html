@@ -18,14 +18,24 @@
 
   <div fxShow="true" fxHide.lt-sm="true">
     <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+
     <mat-tab-group *ngIf="BONUS_NAV_VIEWS.SETTINGS.includes(currentView)"
           class="sub-nav-bar" 
           (selectedTabChange)="bonusNavSettingsTabChanged($event)"
-          [selectedIndex]="getBonusNavSettingsTabIndexFromCurrentView(currentView)">
+          [selectedIndex]="getBonusNavTabIndexFromCurrentView(currentView)">
       <mat-tab label="ACCOUNT"></mat-tab>
       <mat-tab label="PASSWORD"></mat-tab>
       <mat-tab label="PAYMENT"></mat-tab>
     </mat-tab-group>
+
+    <mat-tab-group *ngIf="BONUS_NAV_VIEWS.DASHBOARD.includes(currentView)"
+        class="sub-nav-bar" 
+        (selectedTabChange)="bonusNavDashboardTabChanged($event)"
+        [selectedIndex]="getBonusNavTabIndexFromCurrentView(currentView)">
+      <mat-tab label="EXPLORE"></mat-tab>
+      <mat-tab label="PROFILE"></mat-tab>
+    </mat-tab-group>
+
   </div>
 
   <mat-sidenav-container fxFlexFill>

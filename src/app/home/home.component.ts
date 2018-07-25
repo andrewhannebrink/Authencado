@@ -27,24 +27,24 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  // TODO turn this and below function into one function
   bonusNavSettingsTabChanged(tabChangeEvent: MatTabChangeEvent): void {
-    if (tabChangeEvent.index === 0) {
-      this.changeView(VIEWS.ACCOUNT_DETAILS);
-    } else if (tabChangeEvent.index === 1) {
-      this.changeView(VIEWS.PASSWORD);
-    } else {
-      this.changeView(VIEWS.PAYMENT);
-    }
+    this.changeView(BONUS_NAV_VIEWS.SETTINGS[tabChangeEvent.index]);
   }
 
-  getBonusNavSettingsTabIndexFromCurrentView(currentView: string): number {
+  bonusNavDashboardTabChanged(tabChangeEvent: MatTabChangeEvent): void {
+    this.changeView(BONUS_NAV_VIEWS.DASHBOARD[tabChangeEvent.index]);
+  }
+
+  getBonusNavTabIndexFromCurrentView(currentView: string): number {
     if (BONUS_NAV_VIEWS.SETTINGS.includes(currentView)) {
       return BONUS_NAV_VIEWS.SETTINGS.indexOf(currentView);
+    } else if (BONUS_NAV_VIEWS.DASHBOARD.includes(currentView)) {
+      return BONUS_NAV_VIEWS.DASHBOARD.indexOf(currentView);
     }
-
     return 0;
   }
-
+  
   ngOnInit() { }
 
 }
