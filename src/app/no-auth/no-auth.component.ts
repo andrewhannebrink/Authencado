@@ -31,6 +31,7 @@ export class NoAuthComponent implements OnInit {
   public weakPassword: boolean;
   public emailAlreadyInUse: boolean;
   public emailBlank : boolean;
+  public accountExistsWithDifferentCredentials: boolean;
 
   public passwordResetInvalidEmail: boolean;
   public userNotFound: boolean;
@@ -86,6 +87,7 @@ export class NoAuthComponent implements OnInit {
     this.passwordsDontMatch = false;
     this.emailBlank = false;
     this.termsNotAgreedError = false;
+    this.accountExistsWithDifferentCredentials = false;
 
     this.passwordResetInvalidEmail = false;
     this.userNotFound = false;
@@ -226,6 +228,9 @@ export class NoAuthComponent implements OnInit {
       // The firebase.auth.AuthCredential type that was used.
       var credential = error.credential;
       console.log(error);
+      if (error.code === 'auth/account-exists-with-different-credential') {
+        this.accountExistsWithDifferentCredentials = true;
+      }
     });
   }
 

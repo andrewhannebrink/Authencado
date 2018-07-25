@@ -54,6 +54,7 @@
             <p *ngIf="weakPassword" class="mat-body-1 mat-error">Password must be six or more characters.</p>
             <p *ngIf="emailAlreadyInUse" class="mat-body-1 mat-error">Email already in use.</p>
             <p *ngIf="termsNotAgreedError" class="mat-body-1 mat-error">You must agree to the terms and services.</p>
+            <p *ngIf="accountExistsWithDifferentCredentials" class="mat-body-1 mat-error">You already have an account with us through a different social media provider.</p>
           </div>
 
           <div class="side-by-side-buttons" *ngIf="currentView === VIEWS.LOG_IN">
