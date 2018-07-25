@@ -1,5 +1,37 @@
 <div class="login-wrapper">
 
   <h3>ACCOUNT DETAILS</h3>
+  <div class="change-photo-box">
+  	<div class="profile-photo main-color-fill">
+  	</div>
+  	<button mat-button class="auth-paragraph">Change Photo</button>
+  </div>
+  <mat-form-field>
+    <input matInput placeholder="Name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Email">
+  </mat-form-field>
+  <mat-form-field >
+    <input matInput placeholder="City">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="State">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Country">
+  </mat-form-field>
+
+  <div class="side-by-side-buttons">
+    <button mat-button 
+        (click)="changeAuthView(AUTH_VIEWS.EXPLORE)"
+        class="subtle-button half-length-button">
+      Cancel
+    </button>
+    <button mat-button 
+        class="bright-button half-length-button">
+      UPDATE
+    </button>
+  </div>
 
 </div>

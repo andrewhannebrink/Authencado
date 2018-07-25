@@ -49,7 +49,7 @@
 
       <app-account-details
           *ngIf="currentView === VIEWS.ACCOUNT_DETAILS"
-          [changeView]="changeView.bind(this)">
+          [changeAuthView]="changeView.bind(this)">
       </app-account-details>
 
       <app-auth-change-password 
