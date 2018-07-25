@@ -1,0 +1,44 @@
+.tall-top-footer {
+  height: auto;
+  margin-top: 20px;
+}
+
+.short-bottom-footer {
+  height: auto;
+}
+
+.short-bottom-footer-link {
+  margin: 10px;
+}
+
+.rights-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 100vw;
+  flex-wrap: wrap-reverse;
+}
+
+.rights-footer-left {
+  flex: 3;
+  display: flex;
+  justify-content: flex-start;
+  margin: 15px;
+  min-width: 280px;
+}
+
+.rights-footer-right {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+  margin: 15px;
+}
+
+ul.contact-list {
+  margin-left: -10px;
+  padding: 0;
+}
+
+.contact-box {
+  padding: 15px;
+}
