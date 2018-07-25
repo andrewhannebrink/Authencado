@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { VIEWS } from '../home/home.component';
+import { AUTH_VIEWS } from '../home/home.component';
 
 @Component({
   selector: 'app-logout',
@@ -11,7 +11,7 @@ export class LogoutComponent implements OnInit {
 
   @Input() changeView: Function;
 
-  public VIEWS = VIEWS;
+  public VIEWS = AUTH_VIEWS;
 
   constructor(public authService: AuthService) { }
 

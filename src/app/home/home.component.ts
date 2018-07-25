@@ -12,9 +12,9 @@ import { MatTabChangeEvent } from '@angular/material';
 export class HomeComponent implements OnInit {
 
   public BONUS_NAV_VIEWS = BONUS_NAV_VIEWS;
-  public VIEWS = VIEWS;
+  public VIEWS = AUTH_VIEWS;
 
-  public currentView: string;
+  public currentView: string = AUTH_VIEWS.EXPLORE;
 
   constructor(public router: Router,
     public authService: AuthService) { }
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
 
 }
 
-export const VIEWS = {
+export const AUTH_VIEWS = {
   ACCOUNT_DETAILS: 'ACCOUNT_DETAILS',
   EXPLORE: 'EXPLORE',
   HELP: 'HELP',
@@ -61,12 +61,12 @@ export const VIEWS = {
 
 const BONUS_NAV_VIEWS = {
   SETTINGS: [
-    VIEWS.ACCOUNT_DETAILS,
-    VIEWS.PASSWORD,
-    VIEWS.PAYMENT,
+    AUTH_VIEWS.ACCOUNT_DETAILS,
+    AUTH_VIEWS.PASSWORD,
+    AUTH_VIEWS.PAYMENT,
   ],
   DASHBOARD: [
-    VIEWS.EXPLORE,
-    VIEWS.PROFILE 
+    AUTH_VIEWS.EXPLORE,
+    AUTH_VIEWS.PROFILE 
   ]
 }

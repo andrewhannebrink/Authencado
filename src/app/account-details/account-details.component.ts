@@ -1,5 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { VIEWS } from '../home/home.component';
+import { AUTH_VIEWS } from '../home/home.component';
 
 
 @Component({
@@ -11,7 +11,7 @@ export class AccountDetailsComponent implements OnInit {
 
   @Input() changeAuthView: Function;
 
-  public AUTH_VIEWS = VIEWS;
+  public AUTH_VIEWS = AUTH_VIEWS;
 
   constructor() { }
 
