@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
   canActivate(
       next: ActivatedRouteSnapshot,
       state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-  	const currentUser = this.auth.getCurrentUser();
+  	/*const currentUser = this.auth.getCurrentUser();
     if (!!currentUser) {
     	if (currentUser.emailVerified || 
     		  this.auth.hasProviderThatNeedsNoEmailVerification(currentUser)) {
@@ -23,6 +23,8 @@ export class AuthGuard implements CanActivate {
     }
     console.log('access denied!');
     this.router.navigate(['/'])
-    return false;
+    return false;*/
+      return this.auth.canActivateAuthRoutes();
+
   }
 }

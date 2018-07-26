@@ -54,7 +54,7 @@ export class AuthChangePasswordComponent implements OnInit {
   	  } else if (error.code === 'auth/requires-recent-login') {
   	  	const currentUser = this.authService.getCurrentUser();
   	  	if (!currentUser.email) {
-  	  	  // user does not user email/pw to sign in (uses social instead)
+  	  	  // user does not use email/pw to sign in (uses social instead)
   	  	  this.genericError = true;
   	  	  return;
   	  	}

@@ -6,6 +6,10 @@ import * as firebase from 'firebase/app';
 
 import { Observable } from 'rxjs';
 
+import { tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
+
 @Injectable()
 export class AuthService {
   public user: Observable<firebase.User>;
@@ -40,7 +44,7 @@ export class AuthService {
       .auth
       .signOut();
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   resetPassword(email: string) {
@@ -95,6 +99,23 @@ export class AuthService {
       password
     );
     return this.getCurrentUser().reauthenticateAndRetrieveDataWithCredential(credential);
+  }
+
+  canActivateAuthRoutes(): Observable<boolean> {
+    return this.firebaseAuth.authState 
+    .pipe(
+      take(1)
+    )
+    .pipe(
+      map(authState => !!authState)
+    )
+    .pipe(
+      tap(authenticated => {
+        if (!authenticated) {
+          this.router.navigate(['/login']);
+        }
+      })
+    )
   }
 
   private ALLOWED_EMAILS = [
