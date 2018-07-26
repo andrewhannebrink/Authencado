@@ -24,6 +24,7 @@
   min-width: 220px;
   margin: auto;
   padding-left: 15px;
+  padding-right: 15px;
 }
 
 .rights-footer-right {
@@ -45,5 +46,9 @@ ul.contact-list {
 .social-span {
   font-size: x-large !important;
   min-width: 200px;
+}
+
+.all-rights-reserved {
+  text-align: center;
 }
 
