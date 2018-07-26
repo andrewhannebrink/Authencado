@@ -3,7 +3,7 @@
   <h3>ACCOUNT DETAILS</h3>
   <div class="change-photo-box">
   	<div class="profile-photo"
-        [ngClass]="'main-color-fill'">
+        [ngClass]="{ 'main-color-fill': !emojiInInitialsCircle }">
       <div *ngIf=true class="profile-initials">
         {{ getProfileInitials() }}
       </div>

@@ -19,6 +19,8 @@ export class AccountDetailsComponent implements OnInit {
   public accountDetailsSuccessfullyUpdated: boolean;
   public genericError: boolean;
 
+  public emojiInInitialsCircle: boolean = false;
+
   public accountDetailUpdates = {
     // get display name from firebase
   	displayName: this.user.displayName 
@@ -50,21 +52,32 @@ export class AccountDetailsComponent implements OnInit {
     })
   }
 
+  // TODO: this function probably still breaks in the far reaches of 
+  // corner-case regex land
   getProfileInitials(): string {
     if (!this.user.displayName) {
       return '??';
     }
-    const splitName = this.user.displayName.split(/_| |-|\./);
+    let splitName = this.user.displayName.split(/_| |-|\./);
+    //remove excess blank strings
+    while (splitName[0] === '') {
+      splitName = splitName.slice(1);
+    }
+    while (splitName[1] === '') {
+      splitName.splice(1, 1);
+    }
 
     // Detect for names with first character emojis
     const nonEmojiChars = /[a-zA-Z0-9\t\n ./<>?;:"'`!@#$%^&*()\~\[\]{}_+=|\\-]/g;
     const emojiChars = /[^a-zA-Z0-9\t\n ./<>?;:"'`!@#$%^&*()\~\[\]{}_+=|\\-]/g;
     if (splitName[0].indexOf('\u200D') > 1) {
       //console.log('ZWIDGE');
+      this.emojiInInitialsCircle = true;
       return splitName[0].toUpperCase().replace(nonEmojiChars, '');
     }
     if (splitName[0].match(emojiChars)) {
       //console.log('symbol char matched in first portion');
+      this.emojiInInitialsCircle = true;
       return splitName[0].toUpperCase().replace(nonEmojiChars, '').slice(0, 2);
     }
     if (!!splitName[1] && splitName[1].match(emojiChars)) {
