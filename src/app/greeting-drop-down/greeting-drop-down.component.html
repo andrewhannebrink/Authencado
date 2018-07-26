@@ -1,5 +1,5 @@
 <button mat-button [matMenuTriggerFor]="menu" class="top-right-greeting-link">
-  Hello, Lulu <mat-icon>arrow_drop_down</mat-icon>
+  Hello, {{ getCurrentDisplayName() }} <mat-icon>arrow_drop_down</mat-icon>
 </button>
 
 <mat-menu #menu="matMenu">

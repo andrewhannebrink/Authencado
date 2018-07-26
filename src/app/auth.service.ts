@@ -77,6 +77,14 @@ export class AuthService {
     return false;
   }
 
+  updateUser(accountDetailUpdates) {
+    const updatedDisplayName: string = accountDetailUpdates.displayName;
+    return this.getCurrentUser().updateProfile({
+      displayName: updatedDisplayName,
+      photoURL: ''
+    })
+  }
+
   private ALLOWED_EMAILS = [
 
   ];

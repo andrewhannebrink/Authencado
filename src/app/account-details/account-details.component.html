@@ -7,10 +7,10 @@
   	<button mat-button class="auth-paragraph">Change Photo</button>
   </div>
   <mat-form-field>
-    <input matInput placeholder="Name">
+    <input matInput placeholder="Name" [(ngModel)]="accountDetailUpdates.displayName">
   </mat-form-field>
   <mat-form-field>
-    <input matInput placeholder="Email">
+    <input matInput disabled placeholder="Email" value="{{getCurrentUserEmail()}}">
   </mat-form-field>
   <mat-form-field >
     <input matInput placeholder="City">
@@ -29,6 +29,7 @@
       Cancel
     </button>
     <button mat-button 
+        (click)="updateAccountDetailsClicked(accountDetailUpdates)"
         class="bright-button half-length-button">
       UPDATE
     </button>

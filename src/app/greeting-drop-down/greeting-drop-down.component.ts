@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { AUTH_VIEWS } from '../home/home.component';
 
 @Component({
@@ -12,7 +13,11 @@ export class GreetingDropDownComponent implements OnInit {
 
   public VIEWS = AUTH_VIEWS;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
+
+  public getCurrentDisplayName() {
+    return this.authService.getCurrentUser().displayName;
+  }
 
   ngOnInit() {
   }
