@@ -17,7 +17,8 @@ export class AccountDetailsComponent implements OnInit {
   public user: firebase.User = this.authService.getCurrentUser();
 
   public accountDetailUpdates = {
-  	displayName: this.user.displayName;
+    // get display name from firebase
+  	displayName: this.user.displayName 
   }
 
   constructor(private authService: AuthService) { }
@@ -42,6 +43,16 @@ export class AccountDetailsComponent implements OnInit {
       //Error
       console.log(error);
     })
+  }
+
+  getProfileInitials(): string {
+    const splitName = this.user.displayName.split(/_| |-|\./);
+    if (splitName.length >= 2) {
+      return (splitName[0][0] + splitName[1][0]).toUpperCase();
+    } else if (splitName.length === 1 && splitName[0].length >= 2) {
+      return (splitName[0][0] + splitName[0][1]).toUpperCase();
+    }
+    return '??';
   }
 
 }
