@@ -67,7 +67,7 @@
 
       <app-auth-change-password 
           *ngIf="currentView === VIEWS.PASSWORD"
-          [changeView]="changeView.bind(this)">
+          [changeAuthView]="changeView.bind(this)">
       </app-auth-change-password>
 
       <app-update-payment-methods

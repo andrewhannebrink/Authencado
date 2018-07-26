@@ -1,4 +1,5 @@
 import { Component, OnInit, Input} from '@angular/core';
+import { AUTH_VIEWS } from '../home/home.component';
 
 @Component({
   selector: 'app-auth-change-password',
@@ -7,7 +8,9 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class AuthChangePasswordComponent implements OnInit {
 
-  @Input() changeView: Function;
+  public AUTH_VIEWS = AUTH_VIEWS;
+
+  @Input() changeAuthView: Function;
 
   constructor() { }
 
