@@ -60,8 +60,16 @@ export class AuthChangePasswordComponent implements OnInit {
   	  	}
         this.authService.reauthenticateUser(currentUser.email, this.typedOldPassword)
         .then(value => {
+          // user reauthenticated, so try changing their password again
           console.log('success reauthenticating');
-          console.log(value);
+          this.authService.authChangePassword(this.typedNewPassword)
+          .then(value => {
+            this.passwordSuccessfullyChanged = true;
+          })
+          .catch(error => {
+            console.log(error);
+            this.genericError = true;
+          })
         })
         .catch(error => {
           this.genericError = true;

@@ -16,6 +16,9 @@ export class AccountDetailsComponent implements OnInit {
 
   public user: firebase.User = this.authService.getCurrentUser();
 
+  public accountDetailsSuccessfullyUpdated: boolean;
+  public genericError: boolean;
+
   public accountDetailUpdates = {
     // get display name from firebase
   	displayName: this.user.displayName 
@@ -27,6 +30,11 @@ export class AccountDetailsComponent implements OnInit {
   	console.log(this.user);
   }
 
+  clearErrors(): void {
+    this.accountDetailsSuccessfullyUpdated = false;
+    this.genericError = false;
+  }
+
   getCurrentUserEmail(): string {
   	console.log(this.user);
   	return this.user.email;
@@ -35,13 +43,12 @@ export class AccountDetailsComponent implements OnInit {
   updateAccountDetailsClicked(accountDetailUpdates: any) {
   	this.authService.updateUser(accountDetailUpdates)
   	.then(response => {
-      //Success
-      console.log('update user successe!!');
-      console.log(response);
+      this.accountDetailsSuccessfullyUpdated = true;
+
     })
     .catch(error => {
-      //Error
       console.log(error);
+      this.genericError = true;
     })
   }
 

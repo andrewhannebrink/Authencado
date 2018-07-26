@@ -16,6 +16,9 @@
     <input matInput disabled placeholder="Email" value="{{getCurrentUserEmail()}}">
   </mat-form-field>
 
+  <p *ngIf="genericError" class="mat-body-1 mat-error">Something went wrong.</p>
+  <p *ngIf="accountDetailsSuccessfullyUpdated" class="mat-body-1 success">Your account has been updated.</p>
+
   <div class="side-by-side-buttons">
     <button mat-button 
         (click)="changeAuthView(AUTH_VIEWS.EXPLORE)"
