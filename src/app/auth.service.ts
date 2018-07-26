@@ -47,6 +47,10 @@ export class AuthService {
     return this.firebaseAuth.auth.sendPasswordResetEmail(email);
   }
 
+  authChangePassword(newPassword: string) {
+     return this.getCurrentUser().updatePassword(newPassword);
+  }
+
   twitterLogin() {
     return this.firebaseAuth.auth.signInWithPopup(
       new firebase.auth.TwitterAuthProvider()
@@ -83,6 +87,14 @@ export class AuthService {
       displayName: updatedDisplayName,
       photoURL: ''
     })
+  }
+
+  reauthenticateUser(email: string, password: string) {
+    const credential = firebase.auth.EmailAuthProvider.credential(
+      email, 
+      password
+    );
+    return this.getCurrentUser().reauthenticateAndRetrieveDataWithCredential(credential);
   }
 
   private ALLOWED_EMAILS = [
