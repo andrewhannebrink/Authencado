@@ -27,7 +27,6 @@ export class AccountDetailsComponent implements OnInit {
   constructor(private authService: AuthService) { }
   
   ngOnInit() {
-  	console.log(this.user);
   }
 
   clearErrors(): void {
@@ -36,7 +35,6 @@ export class AccountDetailsComponent implements OnInit {
   }
 
   getCurrentUserEmail(): string {
-  	console.log(this.user);
   	return this.user.email;
   }
 
@@ -57,6 +55,22 @@ export class AccountDetailsComponent implements OnInit {
       return '??';
     }
     const splitName = this.user.displayName.split(/_| |-|\./);
+
+    // Detect for names with first character emojis
+    const nonEmojiChars = /[a-zA-Z0-9\t\n ./<>?;:"'`!@#$%^&*()\~\[\]{}_+=|\\-]/g;
+    const emojiChars = /[^a-zA-Z0-9\t\n ./<>?;:"'`!@#$%^&*()\~\[\]{}_+=|\\-]/g;
+    if (splitName[0].indexOf('\u200D') > 1) {
+      //console.log('ZWIDGE');
+      return splitName[0].toUpperCase().replace(nonEmojiChars, '');
+    }
+    if (splitName[0].match(emojiChars)) {
+      //console.log('symbol char matched in first portion');
+      return splitName[0].toUpperCase().replace(nonEmojiChars, '').slice(0, 2);
+    }
+    if (!!splitName[1] && splitName[1].match(emojiChars)) {
+      //console.log('symbol char matched in second portion');
+      return splitName[0].slice(0, 2).toUpperCase();
+    }
     if (splitName.length >= 2) {
       return (splitName[0][0] + splitName[1][0]).toUpperCase();
     } else if (splitName.length === 1 && splitName[0].length >= 2) {
