@@ -46,6 +46,9 @@ export class AccountDetailsComponent implements OnInit {
   }
 
   getProfileInitials(): string {
+    if (!this.user.displayName) {
+      return '??';
+    }
     const splitName = this.user.displayName.split(/_| |-|\./);
     if (splitName.length >= 2) {
       return (splitName[0][0] + splitName[1][0]).toUpperCase();
