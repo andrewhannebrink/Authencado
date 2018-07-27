@@ -2,12 +2,16 @@
 
   <h3>ACCOUNT DETAILS</h3>
   <div class="change-photo-box">
-  	<div class="profile-photo"
-        [ngClass]="{ 'main-color-fill': !emojiInInitialsCircle }">
-      <div *ngIf=true class="profile-initials">
+  	<div *ngIf="!emojiInInitialsCircle" class="profile-photo">
+      <div class="profile-initials">
         {{ getProfileInitials() }}
       </div>
   	</div>
+    <div *ngIf="emojiInInitialsCircle" class="profile-photo emoji-circle">
+      <div class="profile-initials profile-emoji">
+        {{ getProfileInitials() }}
+      </div>
+    </div>
   	<button mat-button class="auth-paragraph">Change Photo</button>
   </div>
   <mat-form-field>

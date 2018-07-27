@@ -212,6 +212,20 @@ span {
   margin: 15px 0;
 }
 
+.add-circle {
+  max-height: 70px !important;
+  max-width: 70px !important;
+  min-height: 70px !important;
+  min-width: 70px !important;
+  border-radius: 35px;
+  background-color: $main-color;
+  color: $background-color;
+  font-size: 70px;
+  position:relative;
+  top: -60px;
+  align-self: flex-end;
+}
+
 .bright-button {
     background-color: $main-color !important;
     letter-spacing: 2px;
@@ -314,7 +328,7 @@ span {
 
 .title {
   font-family: LEAGUESPARTAN;
-  font-size: xx-large;
+  font-size: x-large;
   letter-spacing: 2px;
   color: $background-color;
 }

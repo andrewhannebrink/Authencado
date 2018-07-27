@@ -1,3 +1,5 @@
+@import "../utilities/theme-variables";
+
 .change-photo-box {
   display: flex;
   justify-content: flex-start;
@@ -7,20 +9,30 @@
 }
 
 .profile-photo {
-  width: 90px;
-  height: 90px;
-  border-radius: 45px; 
+  width: 140px;
+  height: 140px;
+  border-radius: 70px; 
   margin-right: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-color: $main-color;
+}
+
+.emoji-circle { 
+  background-color: $background-color !important;
 }
 
 .profile-initials {
   font-family: PROXIMANOVA-LT;
-  color: white;
+  color: $background-color;
   font-size: 45px;
   letter-spacing: 8px;
   margin-left: 8px;
+}
+
+.profile-emoji {
+  color: $main-color;
+  font-size: 70px !important;
 }

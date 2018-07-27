@@ -81,12 +81,15 @@ export class AccountDetailsComponent implements OnInit {
       return splitName[0].toUpperCase().replace(nonEmojiChars, '').slice(0, 2);
     }
     if (!!splitName[1] && splitName[1].match(emojiChars)) {
+      this.emojiInInitialsCircle = false;
       //console.log('symbol char matched in second portion');
       return splitName[0].slice(0, 2).toUpperCase();
     }
     if (splitName.length >= 2) {
+      this.emojiInInitialsCircle = false;
       return (splitName[0][0] + splitName[1][0]).toUpperCase();
     } else if (splitName.length === 1 && splitName[0].length >= 2) {
+      this.emojiInInitialsCircle = false;
       return (splitName[0][0] + splitName[0][1]).toUpperCase();
     }
     return '??';
