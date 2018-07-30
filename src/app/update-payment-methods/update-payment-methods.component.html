@@ -1,23 +1,13 @@
 <div class="login-wrapper">
 
-  <h3>UPDATE PAYMENT INFO</h3>
+  <h3>CHOOSE PAYMENT METHOD</h3>
 
-  <button mat-button class="full-length-button subtle-button">
-    Existing payment method	#1
-  </button>
-  <button mat-button class="full-length-button subtle-button">
-    Existing payment method	#2
-  </button>
-  <button mat-button class="full-length-button subtle-button">
-    Existing payment method	#3
-  </button>
-  
   <h3>- OR -</h3> 
 
-  <button mat-button class="full-length-button subtle-button">
-  	Add a payment method
+  <button mat-button (click)="handlePayment()" class="full-length-button subtle-button">
+    Subscribe ($2.00 / month)	
   </button>
-  <button mat-button class="add-circle">
+  <button mat-button (click)="handlePayment()" class="add-circle">
   	+
   </button>
 

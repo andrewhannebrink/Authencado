@@ -37,6 +37,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { environment } from '../environments/environment';
 import { NoAuthComponent } from './no-auth/no-auth.component';
 import { AuthService } from './auth.service';
+import { PaymentService } from './payment.service';
 import { AuthGuard } from './core/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
@@ -103,6 +104,7 @@ import { NoAuthResetPasswordComponent } from './no-auth-reset-password/no-auth-r
   ],
   providers: [
     AuthService,
+    PaymentService,
     AuthGuard
   ],
   bootstrap: [AppComponent]
