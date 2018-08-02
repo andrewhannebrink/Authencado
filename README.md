@@ -1,4 +1,17 @@
-#Auth App
+#Authencado
+
+Authencado is a starter repo for web apps that use authentication and credit card payments. My thought process while making Authencado was similar to how Kanye West invented the Yeezy Boost tennis shoe. I thought of the perfect starter repo for an app that needs an auth system and payment system, fully geared towards my own style. 
+
+I plan on forking future projects from Authencado whenever I start a new user-based app. Built with Angular 6 and Firebase, Authencado features: 
+
+* Responsive and animated UI skeleton for navigation built with Material design philosophy
+* Sign up / Log in with email, Twitter, Facebook, Google
+* Email confirmations for new users who sign up with email
+* Reset password emails for signed out users who have forgotten their passwords.
+* Reset password functionality for authorized users
+* An Account Details page where signed in users can update their information
+* Payments functionality with Stripe
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
