@@ -11,6 +11,8 @@ I plan on forking future projects from Authencado whenever I start a new user-ba
 * Reset password functionality for authorized users
 * An Account Details page where signed in users can update their information
 * Payments functionality with Stripe
+* Customizable app-wide color theme in ``utilities/theme-variables.scss``
+* Pretty icons courtesy of Font Awesome
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
