@@ -19,7 +19,7 @@ I plan on forking future projects from Authencado whenever I start a new user-ba
 
 To get started, set up ``environments/environment.ts`` and ``environments/environment.prod.ts`` as so:
 
- ``export const environment = {
+ ``export const environment = {``
    production: true,
    firebase: {
     apiKey: "",
@@ -30,7 +30,7 @@ To get started, set up ``environments/environment.ts`` and ``environments/enviro
     messagingSenderId: "",
     stripeKey:""
    }
- };``
+ ``};``
  
 
 
