@@ -1,11 +1,11 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { AuthService } from '../auth.service';
-import { AUTH_VIEWS } from '../home/home.component';
+import { AuthService } from '../../auth.service';
+import { AUTH_VIEWS } from '../../home/home.component';
 
 @Component({
   selector: 'app-auth-change-password',
   templateUrl: './auth-change-password.component.html',
-  styleUrls: ['./auth-change-password.component.css', '../app.component.scss']
+  styleUrls: ['./auth-change-password.component.css', '../../app.component.scss']
 })
 export class AuthChangePasswordComponent implements OnInit {
 

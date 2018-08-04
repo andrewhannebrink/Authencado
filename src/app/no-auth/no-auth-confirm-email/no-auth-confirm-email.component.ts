@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { NO_AUTH_VIEWS } from '../no-auth/no-auth.component';
+import { AuthService } from '../../auth.service';
+import { NO_AUTH_VIEWS } from '../no-auth.component';
 
 @Component({
   selector: 'app-no-auth-confirm-email',
   templateUrl: './no-auth-confirm-email.component.html',
-  styleUrls: ['./no-auth-confirm-email.component.css', '../app.component.scss']
+  styleUrls: ['./no-auth-confirm-email.component.css', '../../app.component.scss']
 })
 export class NoAuthConfirmEmailComponent implements OnInit {
 

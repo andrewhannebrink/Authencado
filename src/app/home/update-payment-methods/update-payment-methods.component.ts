@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, HostListener} from '@angular/core';
-import { PaymentService } from '../payment.service';
-import { environment } from '../../environments/environment';
+import { PaymentService } from '../../payment.service';
+import { environment } from '../../../environments/environment';
 
 declare var StripeCheckout: any;
 
 @Component({
   selector: 'app-update-payment-methods',
   templateUrl: './update-payment-methods.component.html',
-  styleUrls: ['./update-payment-methods.component.scss', '../app.component.scss']
+  styleUrls: ['./update-payment-methods.component.scss', '../../app.component.scss']
 })
 export class UpdatePaymentMethodsComponent implements OnInit {
   

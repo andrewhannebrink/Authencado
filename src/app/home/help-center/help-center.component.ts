@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-help-center',
   templateUrl: './help-center.component.html',
-  styleUrls: ['./help-center.component.css', '../app.component.scss']
+  styleUrls: ['./help-center.component.css', '../../app.component.scss']
 })
 export class HelpCenterComponent implements OnInit {
 

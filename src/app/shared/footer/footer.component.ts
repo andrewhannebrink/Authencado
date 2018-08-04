@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AUTH_VIEWS } from '../home/home.component';
-import { NO_AUTH_VIEWS } from '../no-auth/no-auth.component';
+import { AUTH_VIEWS } from '../../home/home.component';
+import { NO_AUTH_VIEWS } from '../../no-auth/no-auth.component';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css', '../app.component.scss']
+  styleUrls: ['./footer.component.css', '../../app.component.scss']
 })
 export class FooterComponent implements OnInit {
 

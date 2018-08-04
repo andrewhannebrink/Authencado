@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NO_AUTH_VIEWS } from '../no-auth/no-auth.component';
+import { NO_AUTH_VIEWS } from '../no-auth.component';
 
 @Component({
   selector: 'app-no-auth-reset-password',
   templateUrl: './no-auth-reset-password.component.html',
-  styleUrls: ['./no-auth-reset-password.component.css', '../app.component.scss']
+  styleUrls: ['./no-auth-reset-password.component.css', '../../app.component.scss']
 })
 export class NoAuthResetPasswordComponent implements OnInit {
 

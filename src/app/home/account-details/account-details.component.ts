@@ -1,12 +1,12 @@
 import { Component, OnInit, Input} from '@angular/core';
-import { AUTH_VIEWS } from '../home/home.component';
-import { AuthService } from '../auth.service';
+import { AUTH_VIEWS } from '../../home/home.component';
+import { AuthService } from '../../auth.service';
 
 
 @Component({
   selector: 'app-account-details',
   templateUrl: './account-details.component.html',
-  styleUrls: ['./account-details.component.scss', '../app.component.scss']
+  styleUrls: ['./account-details.component.scss', '../../app.component.scss']
 })
 export class AccountDetailsComponent implements OnInit {
 
