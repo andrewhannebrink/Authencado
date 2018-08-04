@@ -8,7 +8,6 @@ import { MatTabChangeEvent } from '@angular/material';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss', '../app.component.scss'],
-  providers [ AuthService ]
 })
 export class HomeComponent implements OnInit {
 
