@@ -23,13 +23,13 @@ To get started, set up ``environments/environment.ts`` and ``environments/enviro
  export const environment = {
    production: true,
    firebase: {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    storageBucket: "",
-    messagingSenderId: "",
-    stripeKey:""
+     apiKey: "",
+     authDomain: "",
+     databaseURL: "",
+     projectId: "",
+     storageBucket: "",
+     messagingSenderId: "",
+     stripeKey:""
    }
  };
  ```
