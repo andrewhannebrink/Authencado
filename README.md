@@ -11,6 +11,7 @@ I plan on forking future projects from Authencado whenever I start a new user-ba
 * Reset password functionality for authorized users
 * An Account Details page where signed in users can update their information
 * Payments functionality with Stripe
+* Lazy loaded feature modules for performance
 * Customizable app-wide color theme in ``utilities/theme-variables.scss``
 * Pretty icons courtesy of Font Awesome
 
