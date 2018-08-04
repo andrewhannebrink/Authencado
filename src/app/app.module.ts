@@ -32,7 +32,6 @@ import { AuthGuard } from './core/auth.guard';
     AppRoutingModule,
   ],
   providers: [
-    AuthService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

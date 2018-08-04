@@ -37,7 +37,7 @@ import { PaymentService } from '../payment.service';
     UpdatePaymentMethodsComponent,
   ],
   providers: [
-    PaymentService
+    PaymentService 
   ]
 })
 export class HomeModule { }

@@ -10,7 +10,9 @@ import { tap } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { take } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
   public user: Observable<firebase.User>;
   public twitterAuthProvider: any;

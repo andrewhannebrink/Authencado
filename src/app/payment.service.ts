@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { HomeModule } from './home/home.module';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PaymentService {
 
   userId: string;
