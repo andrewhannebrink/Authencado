@@ -17,11 +17,11 @@ I plan on forking future projects from Authencado whenever I start a new user-ba
 
 ## Set up your environment
 
-To get started, set up ``environments/environment.ts`` and ``environments/environment.prod.ts`` as so:
+To get started, set up ``environments/environment.ts`` and ``environments/environment.prod.ts`` as so, only switch ``production: true`` for ``environment.prod.ts``:
 
 ```
  export const environment = {
-   production: true,
+   production: false,
    firebase: {
      apiKey: "",
      authDomain: "",
@@ -29,7 +29,7 @@ To get started, set up ``environments/environment.ts`` and ``environments/enviro
      projectId: "",
      storageBucket: "",
      messagingSenderId: "",
-     stripeKey:""
+     stripeKey: ""
    }
  };
  ```
