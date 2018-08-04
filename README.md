@@ -15,6 +15,24 @@ I plan on forking future projects from Authencado whenever I start a new user-ba
 * Customizable app-wide color theme in ``utilities/theme-variables.scss``
 * Pretty icons courtesy of Font Awesome
 
+## Set up your environment
+
+To get started, set up ``environments/environment.ts`` and ``environments/environment.prod.ts`` as so:
+
+ ``export const environment = {
+   production: true,
+   firebase: {
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    stripeKey:""
+   }
+ };``
+ 
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
