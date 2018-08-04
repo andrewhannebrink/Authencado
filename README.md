@@ -19,18 +19,20 @@ I plan on forking future projects from Authencado whenever I start a new user-ba
 
 To get started, set up ``environments/environment.ts`` and ``environments/environment.prod.ts`` as so:
 
- ``export const environment = {`` <br/>
- ``  production: true,`` <br/>
- ``  firebase: {`` <br/>
- ``    apiKey: "",`` <br/>
- ``    authDomain: "",`` <br/>
- ``    databaseURL: "",`` <br/>
- ``    projectId: "",`` <br/>
- ``    storageBucket: "",`` <br/>
- ``    messagingSenderId: "",`` <br/>
- ``    stripeKey: ""`` <br/>
- ``  }`` <br/>
- ``};``
+```
+ export const environment = {
+   production: true,
+   firebase: {
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    stripeKey:""
+   }
+ };
+ ```
  
 
 
