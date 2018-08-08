@@ -28,7 +28,8 @@ export class AuthService {
 
   signup(email: string, password: string) {
     if (this.ALLOWED_EMAILS.length === 0 || 
-        !!this.ALLOWED_EMAILS.includes(email)) {
+        !!this.ALLOWED_EMAILS.map(i => i.toLowerCase())
+        .includes(email.toLowerCase())) {
       return this.firebaseAuth
         .auth
         .createUserWithEmailAndPassword(email, password);

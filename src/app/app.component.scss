@@ -27,6 +27,7 @@ a:active {
 
 a:hover {
   color: $accent-color;
+  cursor: pointer;
 }
 
 a.social-link {
@@ -318,7 +319,7 @@ span {
 
 .title {
   font-family: LEAGUESPARTAN;
-  font-size: xx-large;
+  font-size: x-large;
   letter-spacing: 2px;
   color: $background-color;
 }

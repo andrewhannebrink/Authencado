@@ -71,7 +71,7 @@
           </div>
 
           <h6 *ngIf="currentView === VIEWS.LOG_IN">
-            Not a member yet? Sign up <a href="#" (click)="changeView(VIEWS.SIGN_UP)">here</a>
+            Not a member yet? Sign up <a (click)="changeView(VIEWS.SIGN_UP)">here</a>
           </h6>
 
           <div class="side-by-side-buttons" *ngIf="currentView === VIEWS.SIGN_UP" >
