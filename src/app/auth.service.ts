@@ -110,7 +110,7 @@ export class AuthService {
       take(1)
     )
     .pipe(
-      map(authState => !!authState)
+      map(authState => !!authState && authState.emailVerified)
     )
     .pipe(
       tap(authenticated => {
