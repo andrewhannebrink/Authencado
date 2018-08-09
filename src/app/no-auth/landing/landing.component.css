@@ -34,12 +34,12 @@
 }
 
 .landing-icon-pic {
-  height: 150px;
+  height: 160px;
   width: 150px;
   background-size: 100%;
   background-repeat: no-repeat;
   margin: auto;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .landing-icon-piece {
@@ -48,15 +48,15 @@
 }
 
 .landing-icon-toast {
-  background-image: url(../../../assets/images/toast_icon.png);
+  background-image: url(../../../assets/images/toast-icon.svg);
 }
 
 .landing-icon-tomato {
-  background-image: url(../../../assets/images/tomato_icon.png);
+  background-image: url(../../../assets/images/tomato-icon.svg);
 }
 
 .landing-icon-utensils {
-  background-image: url(../../../assets/images/utensils_icon.png);
+  background-image: url(../../../assets/images/utensils-icon.svg);
 }
 
 .landing-icon-words {
