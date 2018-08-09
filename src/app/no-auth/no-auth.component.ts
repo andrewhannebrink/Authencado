@@ -16,7 +16,7 @@ export class NoAuthComponent implements OnInit {
 
   public VIEWS = NO_AUTH_VIEWS;
 
-  public currentView: string = this.VIEWS.SIGN_UP;
+  public currentView: string = this.VIEWS.LANDING;
   public termsAgreed: boolean;
   public termsNotAgreedError: boolean = false;
   public typedEmail: string;
@@ -264,6 +264,7 @@ export class NoAuthComponent implements OnInit {
 export const NO_AUTH_VIEWS = {
   DEMO: 'DEMO',
   FORGOT_PASSWORD: 'FORGOT_PASSWORD',
+  LANDING: 'LANDING',
   LOG_IN: 'LOG_IN',
   RESET_PASSWORD: 'RESET_PASSWORD',
   SIGN_UP: 'SIGN_UP',

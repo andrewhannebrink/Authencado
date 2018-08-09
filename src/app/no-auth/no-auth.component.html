@@ -151,6 +151,10 @@
         <app-explore
             *ngIf="currentView === VIEWS.DEMO">
         </app-explore>
+
+        <app-landing
+            *ngIf="currentView === VIEWS.LANDING">
+        </app-landing>
         
         <app-footer [currentView]="currentView"></app-footer>
 

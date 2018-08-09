@@ -1,0 +1,58 @@
+.parallax-banner {
+  height: 400px;
+  min-width: 100vw;
+}
+
+.parallax-banner-mobile {
+  height: 30vh;
+  min-width: 100vw;
+}
+
+.banner-1 {
+  background: url(../../../assets/images/avocado-banner.jpg);
+}
+
+.banner-2 {
+  background: url(../../../assets/images/toast-banner.jpg);
+  background-size: cover;
+  //background-repeat: no-repeat;
+}
+
+.landing-icon-span {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 30px;
+}
+
+.landing-icon-pic {
+  height: 150px;
+  width: 150px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.landing-icon-piece {
+  width: 250px;
+  margin: 15px;
+}
+
+.landing-icon-toast {
+  background-image: url(../../../assets/images/toast_icon.png);
+}
+
+.landing-icon-tomato {
+  background-image: url(../../../assets/images/tomato_icon.png);
+}
+
+.landing-icon-utensils {
+  background-image: url(../../../assets/images/utensils_icon.png);
+}
+
+.landing-icon-words {
+  text-align: center;
+}

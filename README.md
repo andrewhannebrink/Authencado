@@ -1,6 +1,6 @@
 ## Authencado
 
-Authencado is a starter repo for web apps that use authentication and credit card payments. My thought process while making Authencado was similar to how Kanye West invented the Yeezy Boost tennis shoe. I thought of the perfect starter repo for an app that needs an auth system and payment system, fully geared towards my own style. 
+Authencado is a starter repo for web apps that use authentication or payments. My thought process while making Authencado was similar to how Kanye West invented the Yeezy Boost tennis shoe. I thought of the perfect starter repo for an app that needs an auth system and payment system, fully geared towards my own style. 
 
 I plan on forking future projects from Authencado whenever I start a new user-based app. Built with Angular 6 and Firebase, Authencado features: 
 

@@ -12,6 +12,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule, MatButtonModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { LandingComponent } from './landing/landing.component';
+
+import { ParallaxModule, ParallaxConfig } from '../../../node_modules/ngx-parallax';
+
 
 @NgModule({
   imports: [
@@ -20,6 +24,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
     MatCheckboxModule,
     MatFormFieldModule,
     MatInputModule,
+    ParallaxModule,
     RecaptchaModule.forRoot(),
     SharedModule
   ],
@@ -27,7 +32,8 @@ import { RecaptchaModule } from 'ng-recaptcha';
     NoAuthComponent,
     NoAuthConfirmEmailComponent,
     NoAuthMobileSidenavComponent,
-    NoAuthResetPasswordComponent
+    NoAuthResetPasswordComponent,
+    LandingComponent,
   ]
 })
 export class NoAuthModule { }
