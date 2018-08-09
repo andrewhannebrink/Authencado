@@ -1,4 +1,10 @@
 .parallax-banner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.parallax-banner-desktop {
   height: 400px;
   min-width: 100vw;
 }
