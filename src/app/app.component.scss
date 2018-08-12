@@ -347,6 +347,10 @@ span {
   color: $background-color;
 }
 
+.title:hover {
+  cursor: pointer;
+}
+
 .top-right-greeting-link {
   font-size: medium;
 }
