@@ -113,7 +113,6 @@ export class NoAuthComponent implements OnInit {
   	this.authService.login(this.typedEmail, this.typedPassword)
     .then(value => {
       console.log('Nice, it worked!');
-      console.log(value);
       // In the case where an unverified user tries to login and is already logged in,
       // the subscription declared in ngInit won't be called, so forward to email verification page using currentUser
       const currentUser = this.authService.getCurrentUser();
@@ -227,7 +226,6 @@ export class NoAuthComponent implements OnInit {
       var email = error.email;
       // The firebase.auth.AuthCredential type that was used.
       var credential = error.credential;
-      console.log(error);
       if (error.code === 'auth/account-exists-with-different-credential') {
         this.accountExistsWithDifferentCredentials = true;
       }

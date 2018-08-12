@@ -110,7 +110,10 @@ export class AuthService {
       take(1)
     )
     .pipe(
-      map(authState => !!authState && authState.emailVerified)
+      map(authState => {
+        return !!authState && 
+          (authState.emailVerified || this.hasProviderThatNeedsNoEmailVerification(authState));
+      })
     )
     .pipe(
       tap(authenticated => {
@@ -124,5 +127,6 @@ export class AuthService {
   private ALLOWED_EMAILS = [
 
   ];
+
 
 }
